@@ -4,9 +4,10 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Contact Us</title>
 <link rel="stylesheet" type="text/css" href="<%= request.getContextPath() %>/css/contactus.css"/>
- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Italianno&display=swap" rel="stylesheet">
 </head>
 <body>
 
@@ -17,8 +18,9 @@
 
         <!-- INTRO QUOTE -->
         <div class="intro-message">
+        	<p class="quote">“We're here for every question—and every transformation”</p>
             <p>Every message is the beginning of something beautiful. Connect with us, and let’s craft a salon experience that’s tailored just for you.</p>
-            <p class="quote">“We're here for every question—and every transformation”</p>
+            
         </div>
 
     </div>
@@ -73,7 +75,7 @@
             </div>
         </div>
 
-        <!-- RIGHT: Contact Form -->
+        <!--  Contact Form -->
         <div class="form-section">
             <h2 class="section-title">Get in touch with us</h2>
 

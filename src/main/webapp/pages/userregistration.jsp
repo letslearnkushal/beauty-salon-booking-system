@@ -4,8 +4,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>User Registration</title>
 <link rel="stylesheet" type="text/css" href="<%= request.getContextPath() %>/css/userregistration.css"/>
+<link href="https://fonts.googleapis.com/css2?family=Italianno&display=swap" rel="stylesheet">
 </head>
 <body>
 
@@ -52,7 +53,7 @@
 
                     <!-- Submit Button -->
                     <div class="input-box">
-                        <button type="submit" class="btn">Register </button>
+                        <button type="submit" class="button">Register </button>
                     </div>
                 </form>
             </div>
