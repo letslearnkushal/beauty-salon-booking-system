@@ -1,0 +1,13 @@
+@charset "UTF-8";
+/* Footer */
+footer {
+    background: #a67c52;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    font-size: 14px;
+}
+footer a {
+    color: white;
+    text-decoration: underline;
+}

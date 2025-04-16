@@ -28,4 +28,41 @@
 		<nature>org.eclipse.jdt.core.javanature</nature>
 		<nature>org.eclipse.wst.jsdt.core.jsNature</nature>
 	</natures>
+	<linkedResources>
+		<link>
+			<name>src/main/webapp/images/cosmetology.png</name>
+			<type>1</type>
+			<location>D:/studies/adv prog/cosmetology.png</location>
+		</link>
+		<link>
+			<name>src/main/webapp/images/hair.png</name>
+			<type>1</type>
+			<location>D:/studies/adv prog/hair.png</location>
+		</link>
+		<link>
+			<name>src/main/webapp/images/makeup.png</name>
+			<type>1</type>
+			<location>D:/studies/adv prog/makeup.png</location>
+		</link>
+		<link>
+			<name>src/main/webapp/images/nails.png</name>
+			<type>1</type>
+			<location>D:/studies/adv prog/nails.png</location>
+		</link>
+		<link>
+			<name>src/main/webapp/images/service.jpg</name>
+			<type>1</type>
+			<location>D:/studies/adv prog/service.jpg</location>
+		</link>
+		<link>
+			<name>src/main/webapp/images/spa.jpg</name>
+			<type>1</type>
+			<location>D:/studies/adv prog/spa.jpg</location>
+		</link>
+		<link>
+			<name>src/main/webapp/pages/images.png</name>
+			<type>1</type>
+			<location>D:/studies/adv prog/images.png</location>
+		</link>
+	</linkedResources>
 </projectDescription>
