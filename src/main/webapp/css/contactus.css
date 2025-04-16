@@ -1,0 +1,147 @@
+@charset "UTF-8";
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #DFBFA8;
+}
+
+/* Wrapper around heading + quote */
+.contact-wrapper {
+    padding: 40px;
+    max-width: 1000px;
+    margin: auto;
+}
+
+/* Heading */
+.main-title {
+    text-align: center;
+    color: #97511E;
+    font-size: 40px;
+    margin-bottom: 10px;
+    font-family: 'Italianno', cursive;
+}
+
+/* Intro Message */
+.intro-message {
+    text-align: center;
+    font-size: 16px;
+    color: #444;
+    margin-bottom: 25px;
+}
+
+.quote {
+    color: black;
+    font-style: italic;
+    margin-top: 10px;
+    font-size:20px;
+}
+
+/* Full-width map */
+.map-full {
+    width: 100%;
+    background-color: #fff;
+    box-shadow: 0 0 10px #ccc;
+    margin-bottom: 40px;
+}
+
+/* Main contact box */
+.contact-box {
+    display: flex;
+    gap: 30px;
+    background-color: #ffffff;
+    padding: 30px;
+    margin: 0 auto 50px;
+    max-width: 1000px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    flex-wrap: wrap;
+}
+
+/* Section titles */
+.section-title {
+    font-size: 20px;
+    color: black;
+    margin-bottom: 20px;
+}
+
+/* Left Info Section */
+.info-section {
+    flex: 1;
+    min-width: 280px;
+}
+
+.info-block {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+    align-items: flex-start;
+}
+
+.icon {
+    font-size: 22px;
+    color: #1966CB;
+    margin-top: 5px;
+    min-width: 24px;
+}
+
+.info-block label {
+    font-weight: bold;
+    color: black;
+    display: block;
+    margin-bottom: 3px;
+}
+
+.info-block p {
+    margin: 0;
+    color: #333;
+}
+
+/* Right Form Section */
+.form-section {
+    flex: 1;
+    min-width: 280px;
+}
+
+.form-section form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-section label {
+    font-weight: bold;
+    margin-top: 10px;
+    color: #444;
+}
+
+.form-section input,
+.form-section textarea {
+    margin-top: 5px;
+    padding: 10px;
+    font-size: 14px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.form-section textarea {
+    resize: vertical;
+    height: 100px;
+}
+
+.form-section input[type="submit"] {
+    margin-top: 15px;
+    background-color: #87CEEB;
+    color: white;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    max-width: 150px;
+}
+
+.form-section input[type="submit"]:hover {
+    background-color: #c2185b;
+}
+
+
+
+  
