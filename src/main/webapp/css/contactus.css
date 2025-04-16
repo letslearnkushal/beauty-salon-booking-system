@@ -3,7 +3,7 @@ body {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
-    background-color: #fff0f5;
+    background-color: #DFBFA8;
 }
 
 /* Wrapper around heading + quote */
@@ -16,9 +16,10 @@ body {
 /* Heading */
 .main-title {
     text-align: center;
-    color: #d81b60;
-    font-size: 32px;
+    color: #97511E;
+    font-size: 40px;
     margin-bottom: 10px;
+    font-family: 'Italianno', cursive;
 }
 
 /* Intro Message */
@@ -30,9 +31,10 @@ body {
 }
 
 .quote {
-    color: #c2185b;
+    color: black;
     font-style: italic;
     margin-top: 10px;
+    font-size:20px;
 }
 
 /* Full-width map */
@@ -59,7 +61,7 @@ body {
 /* Section titles */
 .section-title {
     font-size: 20px;
-    color: #d81b60;
+    color: black;
     margin-bottom: 20px;
 }
 
@@ -78,14 +80,14 @@ body {
 
 .icon {
     font-size: 22px;
-    color: #d81b60;
+    color: #1966CB;
     margin-top: 5px;
     min-width: 24px;
 }
 
 .info-block label {
     font-weight: bold;
-    color: #d81b60;
+    color: black;
     display: block;
     margin-bottom: 3px;
 }
@@ -128,7 +130,7 @@ body {
 
 .form-section input[type="submit"] {
     margin-top: 15px;
-    background-color: #d81b60;
+    background-color: #87CEEB;
     color: white;
     border: none;
     font-size: 16px;
