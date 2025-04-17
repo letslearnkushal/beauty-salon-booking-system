@@ -121,7 +121,7 @@
     <div class="quote-mark top">“</div>
     
     <p class="testimonial-text">
-      Absolutely loved my experience at The Beauty Lab! The staff were so warm and welcoming, and the salon has such a relaxing, chic vibe. I got a facial and a blowout, and honestly, I’ve never felt more pampered. My skin was glowing for days, and my hair looked amazing! You can really tell they care about quality and customer service. Definitely my new go-to beauty spot!
+      Absolutely loved my experience at The Beauty Lab! The staff were so warm and welcoming, and the salon has such a relaxing,comforting, chic vibe. I got a facial and a blowout, and honestly, I’ve never felt more pampered. My skin was glowing for days, and my hair looked amazing! You can really tell they care about quality and customer service. Definitely my new go-to beauty spot!
     </p>
 
     <div class="quote-mark bottom">”</div>
