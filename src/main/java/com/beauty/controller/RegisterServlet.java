@@ -27,7 +27,7 @@ public class RegisterServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+//		request.getRequestDispatcher("/webapp/pages/userregistration.jsp").forward(request, response);
 	}
 
 	/**
@@ -35,39 +35,39 @@ public class RegisterServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String username = request.getParameter("username");
-	    String password = request.getParameter("password");
-	    String rePassword = request.getParameter("re-password");
-	    String phoneNumber = request.getParameter("PhoneNumber");
-
-	    // Validation Checks
-	    if (username.length() < 5 || username.contains(" ")) {
-	        request.setAttribute("errorMessage", "Username must be at least 5 characters long and contain no spaces.");
-	        request.getRequestDispatcher("/WEB-INF/Pages/RegistrationForm.jsp").forward(request, response);
-	        return;
-	    }
-
-	    if (!password.matches("^(?=.*[a-z])(?=.*\\d)[a-z\\d]{6,}$")) {
-	        request.setAttribute("errorMessage", "Password must be at least 6 characters long and include at least one letter and one number.");
-	        request.getRequestDispatcher("/WEB-INF/Pages/RegistrationForm.jsp").forward(request, response);
-	        return;
-	    }
-
-	    if (!password.equals(rePassword)) {
-	        request.setAttribute("errorMessage", "Passwords do not match.");
-	        request.getRequestDispatcher("/WEB-INF/Pages/RegistrationForm.jsp").forward(request, response);
-	        return;
-	    }
-
-	    if (!phoneNumber.matches("\\d{10}")) {
-	        request.setAttribute("errorMessage", "Phone number must be exactly 10 digits.");
-	        request.getRequestDispatcher("/WEB-INF/Pages/RegistrationForm.jsp").forward(request, response);
-	        return;
-	    }
-
-	    // After successful validation, redirect to the login page
-	    request.getRequestDispatcher("/WEB-INF/Pages/Login.jsp").forward(request, response);
-
+//		String username = request.getParameter("username");
+//	    String password = request.getParameter("password");
+//	    String rePassword = request.getParameter("re-password");
+//	    String phoneNumber = request.getParameter("PhoneNumber");
+//
+//	    // Validation Checks
+//	    if (username.length() < 5 || username.contains(" ")) {
+//	        request.setAttribute("errorMessage", "Username must be at least 5 characters long and contain no spaces.");
+//	        request.getRequestDispatcher("/WEB-INF/Pages/RegistrationForm.jsp").forward(request, response);
+//	        return;
+//	    }
+//
+//	    if (!password.matches("^(?=.*[a-z])(?=.*\\d)[a-z\\d]{6,}$")) {
+//	        request.setAttribute("errorMessage", "Password must be at least 6 characters long and include at least one letter and one number.");
+//	        request.getRequestDispatcher("/WEB-INF/Pages/RegistrationForm.jsp").forward(request, response);
+//	        return;
+//	    }
+//
+//	    if (!password.equals(rePassword)) {
+//	        request.setAttribute("errorMessage", "Passwords do not match.");
+//	        request.getRequestDispatcher("/WEB-INF/Pages/RegistrationForm.jsp").forward(request, response);
+//	        return;
+//	    }
+//
+//	    if (!phoneNumber.matches("\\d{10}")) {
+//	        request.setAttribute("errorMessage", "Phone number must be exactly 10 digits.");
+//	        request.getRequestDispatcher("/WEB-INF/Pages/RegistrationForm.jsp").forward(request, response);
+//	        return;
+//	    }
+//
+//	    // After successful validation, redirect to the login page
+//	    request.getRequestDispatcher("/WEB-INF/Pages/Login.jsp").forward(request, response);
+//
 	}
 
 }

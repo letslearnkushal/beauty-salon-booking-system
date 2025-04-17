@@ -12,10 +12,11 @@
 <header>
     <nav>
         <ul class="nav-links">
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Contact Us</a></li>
-            <li><a href="#">About Us</a></li>
+            <li><a href="${pageContext.request.contextPath}/pages/home1.jsp">Home</a></li>
+            <li><a href="${pageContext.request.contextPath}/pages/contactus.jsp">Contact Us</a></li>
+            <li><a href="${pageContext.request.contextPath}/pages/aboutus.jsp">About Us</a></li>
             <li><a href="#">Services</a></li>
+             <li><a href="${pageContext.request.contextPath}/pages/booking.jsp">Booking</a></li>
         </ul>
         <div class="logo">The Beauty Lab</div>
     </nav>
