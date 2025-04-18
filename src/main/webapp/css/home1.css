@@ -62,19 +62,34 @@ nav {
 }
 
 .hero-image {
-    width: 100%;
-    overflow: hidden;
+  background-image: url('../pages/images.png'); /* Check path! */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
 }
 
-.hero-image img {
-    width: 100%;
-    height: auto;
-    display: block;
-    max-height: 500px; /* adjust this if needed */
-    object-fit: cover;
+.hero-text {
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 30px;
+  border-radius: 10px;
 }
 
-
+.cta-btn {
+  margin-top: 20px;
+  padding: 12px 24px;
+  font-size: 16px;
+  background-color: #e91e63;
+  border: none;
+  color: white;
+  cursor: pointer;
+  border-radius: 5px;
+}
 /* Services Section */
 .services {
     padding: 60px 20px;

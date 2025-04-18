@@ -21,11 +21,13 @@
 <body>
 
 <jsp:include page="header.jsp"/>
-
-    <section class="hero-image">
-    <img src="images.png" alt="images"><!-- Add your large banner image here -->
-</section>
-    
+<div class="hero-image">
+  <div class="hero-text">
+      <h1>Glow Up With Confidence</h1>
+      <p>Book Your Beauty Appointments with Ease & Elegance</p>
+      <button class="cta-btn">BOOK NOW</button>
+  </div>
+</div>
 
     <section class="hero">
         <h1>Elegance comes from being as beautiful inside as outside</h1>

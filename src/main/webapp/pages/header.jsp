@@ -9,19 +9,22 @@
 
 </head>
 <body>
-<header>
-    <nav>
-        <ul class="nav-links">
-            <li><a href="${pageContext.request.contextPath}/pages/home1.jsp">Home</a></li>
-            <li><a href="${pageContext.request.contextPath}/pages/contactus.jsp">Contact Us</a></li>
-            <li><a href="${pageContext.request.contextPath}/pages/aboutus.jsp">About Us</a></li>
-            <li><a href="#">Services</a></li>
-             <li><a href="${pageContext.request.contextPath}/pages/booking.jsp">Booking</a></li>
-        </ul>
-        <div class="logo">The Beauty Lab</div>
+ <header class="beauty-header">
+    <nav class="navbar">
+      <ul class="nav-links">
+        <li><a href="${pageContext.request.contextPath}/pages/home1.jsp">Home</a></li>
+        <li><a href="${pageContext.request.contextPath}/pages/contactus.jsp">Contact Us</a></li>
+        <li><a href="${pageContext.request.contextPath}/pages/aboutus.jsp">About Us</a></li>
+        <li><a href="${pageContext.request.contextPath}/pages/services.jsp">Services</a></li>
+        <li><a href="${pageContext.request.contextPath}/pages/booking.jsp">Booking</a></li>
+      </ul>
     </nav>
-   
-</header>
+      <div class="auth-buttons">
+    <button class="login-btn">Login</button>
+    <button class="signup-btn">Sign Up</button>
+  </div>
+    <h1 class="brand">The Beauty Lab</h1>
+  </header>
 
 </body>
 </html>
