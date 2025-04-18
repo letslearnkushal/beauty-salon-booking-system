@@ -48,7 +48,7 @@
       </div>
     </div>
 
-    <button class="btn-booking">Complete Booking</button>
+    <button class="btn-booking">Complete the Booking</button>
   </div>
 </body>
 </html>
