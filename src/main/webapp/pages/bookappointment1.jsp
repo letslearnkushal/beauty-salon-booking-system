@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <title>The Beauty Lab - Book Appointment</title>
 <link rel="stylesheet" type="text/css"
-	href="${pageContext.request.contextPath}/css/Appointment.css" />
+	href="${pageContext.request.contextPath}/css/appointment.css" />
 </head>
 <body>
 <div class="container">

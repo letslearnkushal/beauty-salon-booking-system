@@ -7,7 +7,7 @@
 <meta charset="UTF-8">
 <title>Appointments</title>
 <link rel="stylesheet" type="text/css"
-	href="${pageContext.request.contextPath}/css/Appointments.css"/>
+	href="${pageContext.request.contextPath}/css/appointments.css"/>
 </head>
 <body>
 <div class="container">
