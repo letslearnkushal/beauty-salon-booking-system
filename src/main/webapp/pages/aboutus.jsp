@@ -101,7 +101,7 @@
                 <a href="#"><i class="fab fa-instagram"></i></a>
             </div>
             <div class="team-card">
-                <img src="kushal.jpeg" alt="Khushi">
+                <img src="khushi.jpeg" alt="Khushi">
                 <h4>Khushi Karanjit</h4>
                 <p>Founder</p>
                 <a href="#"><i class="fab fa-facebook-f"></i></a>
