@@ -28,4 +28,41 @@
 		<nature>org.eclipse.jdt.core.javanature</nature>
 		<nature>org.eclipse.wst.jsdt.core.jsNature</nature>
 	</natures>
+	<linkedResources>
+		<link>
+			<name>src/main/webapp/pages/cosmetology.jpg.jpg</name>
+			<type>1</type>
+			<locationURI>PARENT-3-PROJECT_LOC/Pictures/Saved%20Pictures/cosmetology.jpg.jpg</locationURI>
+		</link>
+		<link>
+			<name>src/main/webapp/pages/hair.jpg.jpg</name>
+			<type>1</type>
+			<locationURI>PARENT-3-PROJECT_LOC/Pictures/Saved%20Pictures/hair.jpg.jpg</locationURI>
+		</link>
+		<link>
+			<name>src/main/webapp/pages/image.png.jpg</name>
+			<type>1</type>
+			<locationURI>PARENT-3-PROJECT_LOC/Pictures/Saved%20Pictures/image.png.jpg</locationURI>
+		</link>
+		<link>
+			<name>src/main/webapp/pages/makeup.jpg.jpg</name>
+			<type>1</type>
+			<locationURI>PARENT-3-PROJECT_LOC/Pictures/Saved%20Pictures/makeup.jpg.jpg</locationURI>
+		</link>
+		<link>
+			<name>src/main/webapp/pages/nail.jpg.jpg</name>
+			<type>1</type>
+			<locationURI>PARENT-3-PROJECT_LOC/Pictures/Saved%20Pictures/nail.jpg.jpg</locationURI>
+		</link>
+		<link>
+			<name>src/main/webapp/pages/salon.jpg.png</name>
+			<type>1</type>
+			<locationURI>PARENT-3-PROJECT_LOC/Pictures/Saved%20Pictures/salon.jpg.png</locationURI>
+		</link>
+		<link>
+			<name>src/main/webapp/pages/spa.jpg.jpg</name>
+			<type>1</type>
+			<locationURI>PARENT-3-PROJECT_LOC/Pictures/Saved%20Pictures/spa.jpg.jpg</locationURI>
+		</link>
+	</linkedResources>
 </projectDescription>

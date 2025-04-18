@@ -1,0 +1,45 @@
+@charset "UTF-8";
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #d8bfa3;
+}
+
+.appointment-container {
+  max-width: 600px;
+  margin: 50px auto;
+  padding: 30px;
+  background-color: #fdfdfd;
+  text-align: center;
+}
+
+h1 {
+  color: #7c0f0f;
+  margin-bottom: 30px;
+}
+
+.card {
+  background-color: white;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 20px;
+  text-align: left;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.btn-booking {
+  background-color: #7c0f0f;
+  color: white;
+  padding: 15px 30px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  width: 60%;
+  border-radius: 4px;
+}
