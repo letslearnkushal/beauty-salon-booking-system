@@ -6,160 +6,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
- <style>
  
-
-    body {
-      display: flex;
-      font-family: Arial, sans-serif;
-      margin: 0;
-    }
-
-    .profile-container {
-      display: flex;
-      width: 100%;
-      height: 100vh;
-    }
-
-    .profile-sidebar {
-      background-color: #f0f0f0;
-      width: 250px;
-      padding: 20px;
-    }
-
-    .profile-sidebar h2 {
-      margin-bottom: 5px;
-    }
-
-    .profile-sidebar .member-since {
-      font-size: 12px;
-      color: #007BFF;
-      margin-bottom: 20px;
-    }
-
-    .profile-pic {
-      width: 100px;
-      height: 100px;
-      background-color: #ccc;
-      border-radius: 50%;
-      margin-bottom: 10px;
-    }
-
-    .profile-nav a {
-      display: block;
-      padding: 10px;
-      margin: 10px 0;
-      text-decoration: none;
-      color: black;
-      background: #e0e0e0;
-      border-radius: 5px;
-    }
-
-    .profile-nav a.active {
-      background: #add8ff;
-      font-weight: bold;
-    }
-
-    .profile-main {
-      flex-grow: 1;
-      background-color: #1e1e1e;
-      color: white;
-      padding: 30px;
-      height: max-content;
-    }
-      
-
-        h1 {
-            font-size: 24px;
-            margin-bottom: 20px;
-            color: #333;
-        }
-
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .form-card {
-            background-color: #fff;
-            border-radius: 8px;
-            padding: 55px;
-            margin-bottom: 35px;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-        }
-
-        .form-row {
-            display: flex;
-            flex-wrap: wrap;
-            margin: 0 -10px;
-        }
-
-        .form-group {
-            flex: 1 0 300px;
-            padding: 0 10px;
-            margin-bottom: 20px;
-        }
-
-        .form-label {
-            display: block;
-            margin-bottom: 8px;
-            color: #555;
-            font-size: 14px;
-        }
-
-        .form-control {
-            width: 90%;
-            padding: 12px;
-            background-color: #f0eef1;
-            border: none;
-            border-radius: 5px;
-            color: #333;
-            font-size: 14px;
-            position: relative;
-        }
-
-        .form-control-wrapper {
-            position: relative;
-        }
-
-        .clear-button {
-            position: absolute;
-            right: 10px;
-            top: 50%;
-            transform: translateY(-50%);
-            background: none;
-            border: none;
-            color: #999;
-            cursor: pointer;
-            font-size: 16px;
-        }
-
-        .btn {
-            background-color: #333;
-            color: #fff;
-            border: none;
-            padding: 12px 24px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 14px;
-            transition: background-color 0.3s;
-        }
-
-        .btn:hover {
-            background-color: #555;
-        }
-
-        .password-field {
-            margin-bottom: 20px;
-        }
-
-        @media (max-width: 600px) {
-            .form-group {
-                flex: 1 0 100%;
-            }
-        }
-    </style>
-
 
 </head>
 <body>
@@ -264,15 +111,160 @@
 
  </section>
  </div>
-    <script>
-        // Add event listeners to the clear buttons
-        document.querySelectorAll('.clear-button').forEach(button => {
-            button.addEventListener('click', function() {
-                const input = this.previousElementSibling;
-                input.value = '';
-                input.focus();
-            });
-        });
-    </script>
+
 </body>
 </html>
+<style>
+     * {
+      box-sizing: border-box;
+    }
+
+    body {
+      display: flex;
+      font-family: Arial, sans-serif;
+      margin: 0;
+    }
+
+    .profile-container {
+      display: flex;
+      width: 100%;
+      height: 100vh;
+    }
+
+    .profile-sidebar {
+      background-color: #f0f0f0;
+      width: 250px;
+      padding: 20px;
+    }
+
+    .profile-sidebar h2 {
+      margin-bottom: 5px;
+    }
+
+    .profile-sidebar .member-since {
+      font-size: 12px;
+      color: #007BFF;
+      margin-bottom: 20px;
+    }
+
+    .profile-pic {
+      width: 100px;
+      height: 100px;
+      background-color: #ccc;
+      border-radius: 50%;
+      margin-bottom: 10px;
+    }
+
+    .profile-nav a {
+      display: block;
+      padding: 10px;
+      margin: 10px 0;
+      text-decoration: none;
+      color: black;
+      background: #e0e0e0;
+      border-radius: 5px;
+    }
+
+    .profile-nav a.active {
+      background: #add8ff;
+      font-weight: bold;
+    }
+
+    .profile-main {
+      flex-grow: 1;
+      background-color: #1e1e1e;
+      color: white;
+      padding: 30px;
+    }
+      
+
+        h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #fff;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .form-card {
+            background-color: #fff;
+            border-radius: 8px;
+            padding: 55px;
+            margin-bottom: 35px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-row {
+            display: flex;
+            flex-wrap: wrap;
+            margin: 0 -10px;
+        }
+
+        .form-group {
+            flex: 1 0 300px;
+            padding: 0 10px;
+            margin-bottom: 20px;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 8px;
+            color: #555;
+            font-size: 14px;
+        }
+
+        .form-control {
+            width: 90%;
+            padding: 12px;
+            background-color: #f0eef1;
+            border: none;
+            border-radius: 5px;
+            color: #333;
+            font-size: 14px;
+            position: relative;
+        }
+
+        .form-control-wrapper {
+            position: relative;
+        }
+
+        .clear-button {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: #999;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .btn {
+            background-color: #333;
+            color: #fff;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background-color 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #555;
+        }
+
+        .password-field {
+            margin-bottom: 20px;
+        }
+
+        @media (max-width: 600px) {
+            .form-group {
+                flex: 1 0 100%;
+            }
+        }
+    </style>

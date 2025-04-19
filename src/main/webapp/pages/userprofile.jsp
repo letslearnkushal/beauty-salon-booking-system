@@ -40,49 +40,28 @@
       <div class="profile-info">
         <div class="info-row">
           <label>Name</label>
-          <span>your name</span>
+          <span><input type="text" class="form-control"  value="your name"></span>
         </div>
         <div class="info-row">
           <label>Email</label>
-          <span>yourname@gmail.com</span>
+          <span><input type="text" class="form-control"  value="yourname@gmail.com"></span>
         </div>
         <div class="info-row">
           <label>Mobile number</label>
-          <span>9800000000</span>
+          <span><input type="text" class="form-control"  value="9800000000"></span>
         </div>
         <div class="info-row">
           <label>Location</label>
-          <span>kathmandu</span>
+          <span><input type="text" class="form-control"  value="Kathmandu"></span>
         </div>
       </div>
 
       <button class="save-btn">Save Changes</button>
     </div>
 
-    <!-- Booking History -->
-    <div id="history" class="content-section">
-      <h2>Booking History</h2>
-      <div class="booking-history">
-        <div class="booking-card">
-          <p><strong>Session with <span class="coach-name">Ozenua Oluwatobi</span></strong></p>
-          <p><span class="icon">📅</span> Mon, Jan 10</p>
-          <p><span class="icon">⏰</span> 12:00pm - 1:00pm</p>
-          <a href="#" class="details-link">Details &gt;</a>
-        </div>
-        <div class="booking-card">
-          <p><strong>Session with <span class="coach-name">Ozenua Oluwatobi</span></strong></p>
-          <p><span class="icon">📅</span> Mon, Jan 10</p>
-          <p><span class="icon">⏰</span> 12:00pm - 1:00pm</p>
-          <a href="#" class="details-link">Details &gt;</a>
-        </div>
-      </div>
-    </div>
+    
 
-    <!-- Settings -->
-    <div id="settings" class="content-section">
-      <h2>Settings</h2>
-      <p>Coming soon...</p>
-    </div>
+    
   </section>
 </div>
 </body>

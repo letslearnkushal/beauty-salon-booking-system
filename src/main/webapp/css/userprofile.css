@@ -58,7 +58,7 @@
       flex-grow: 1;
       background-color: #1e1e1e;
       color: white;
-      padding: 30px;
+      padding: 40px;
     }
 
     .profile-header {
@@ -123,3 +123,12 @@
     .content-section.active {
       display: block;
     }
+    .info-row input{
+    height: 55px;
+    width: 300px;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 10px;
+  	font-size: 20px;
+    }
+    
