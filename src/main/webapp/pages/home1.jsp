@@ -17,7 +17,7 @@
         <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/header.css">
           <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/footer.css">
 </head>
-</head>
+
 <body>
 
 <jsp:include page="header.jsp"/>
@@ -25,7 +25,7 @@
   <div class="hero-text">
       <h1>Glow Up With Confidence</h1>
       <p>Book Your Beauty Appointments with Ease & Elegance</p>
-      <button class="cta-btn">BOOK NOW</button>
+     <button class="cta-btn" onclick="location.href='${pageContext.request.contextPath}/pages/booking.jsp'">BOOK NOW</button>
   </div>
 </div>
 
