@@ -135,6 +135,7 @@
       background-color: #f0f0f0;
       width: 250px;
       padding: 20px;
+      height: 1080px;
     }
 
     .profile-sidebar h2 {
@@ -153,6 +154,7 @@
       background-color: #ccc;
       border-radius: 50%;
       margin-bottom: 10px;
+      
     }
 
     .profile-nav a {
@@ -175,6 +177,7 @@
       background-color: #1e1e1e;
       color: white;
       padding: 30px;
+      height: max-content;
     }
       
 
@@ -195,6 +198,9 @@
             padding: 55px;
             margin-bottom: 35px;
             box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+        .form-card h2{
+        color: black;
         }
 
         .form-row {

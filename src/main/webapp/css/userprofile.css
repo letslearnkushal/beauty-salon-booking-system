@@ -19,6 +19,7 @@
       background-color: #f0f0f0;
       width: 250px;
       padding: 20px;
+      
     }
 
     .profile-sidebar h2 {
@@ -79,7 +80,7 @@
       display: flex;
       justify-content: space-between;
       border-bottom: 1px solid #555;
-      padding: 10px 0;
+      padding: 5px 0;
     }
 
     .save-btn {
@@ -124,11 +125,11 @@
       display: block;
     }
     .info-row input{
-    height: 55px;
+    height: 50px;
     width: 300px;
     border-radius: 10px;
     padding: 10px;
     margin: 10px;
-  	font-size: 20px;
+  	font-size: 15px;
     }
     

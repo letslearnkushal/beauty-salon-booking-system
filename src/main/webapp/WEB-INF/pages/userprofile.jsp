@@ -20,7 +20,7 @@
     <nav class="profile-nav">
       <a href="${pageContext.request.contextPath}/pages/userprofile.jsp"><span>👤</span> Personal Info</a>
       <a href="${pageContext.request.contextPath}/pages/userbookinghistory.jsp"><span>⏰</span> Booking History</a>
-      <a href="${pageContext.request.contextPath}/pages/usersetings.jsp"><span>⚙️</span> Settings</a>
+      <a href="${pageContext.request.contextPath}/pages/usersettings.jsp"><span>⚙️</span> Settings</a>
       <a href="${pageContext.request.contextPath}/pages/login.jsp"><span>📕</span> Logout</a>
     </nav>
   </aside>

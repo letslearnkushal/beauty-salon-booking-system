@@ -21,7 +21,7 @@
     </nav>
       <div class="auth-buttons">
     <button class="login-btn">Login</button>
-    <button class="signup-btn">Sign Up</button>
+    <button class="signup-btn" onclick="location.href='${pageContext.request.contextPath}/controller/HomeController'">Sign Up</button>
   </div>
     <h1 class="brand">The Beauty Lab</h1>
   </header>
