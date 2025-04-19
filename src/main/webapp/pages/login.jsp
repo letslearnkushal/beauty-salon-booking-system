@@ -7,8 +7,11 @@
 <title>The Beauty Lab - Login</title>
 <link rel="stylesheet" type="text/css"
 	href="${pageContext.request.contextPath}/css/login.css"/>
+	 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/header.css">
+	  <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/header.css">
 </head>
 <body>
+ <jsp:include page="header.jsp"/>
     <div class="container">
         <div class="login-box">
             <div class="left-panel">
@@ -27,5 +30,6 @@
         </div>
         </div>
     </div>
+    <jsp:include page="footer.jsp"/>
 </body>
 </html>
