@@ -8,7 +8,7 @@
 
     <!-- Google Font for Italianno -->
     <link href="https://fonts.googleapis.com/css2?family=Italianno&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;600&display=swap" rel="stylesheet">
+  
 
     
     
@@ -24,7 +24,7 @@
 <div class="hero-image">
   <div class="hero-text">
       <h1>Glow Up With Confidence</h1>
-      <p>Book Your Beauty Appointments with Ease & Elegance</p>
+      <p>Book Your Beauty Appointments with Ease and Elegance</p>
      <button class="cta-btn" onclick="location.href='${pageContext.request.contextPath}/pages/booking.jsp'">BOOK NOW</button>
   </div>
 </div>
