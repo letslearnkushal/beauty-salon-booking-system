@@ -7,9 +7,11 @@
 <title>About Us</title>
 <link rel="stylesheet" type="text/css" href="<%= request.getContextPath() %>/css/aboutus.css"/>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/header.css">
+          <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/footer.css">
 </head>
 <body>
-
+<jsp:include page="header.jsp"/>
 <div class="aboutus-wrapper">
 
     <!-- 1. HEADING -->
@@ -125,6 +127,6 @@
     </div>
 
 </div>
-
+<jsp:include page="footer.jsp"/>
 </body>
 </html>

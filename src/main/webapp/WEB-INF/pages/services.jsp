@@ -7,14 +7,17 @@
 <title>Services and Prices</title>
 <link rel="stylesheet" type="text/css"
 	href="${pageContext.request.contextPath}/css/service.css" />
+	        <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/header.css">
+          <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/footer.css">
 </head>
 <body>
+<jsp:include page="userheader.jsp"/>
 <div class="services-container">
     <h1 class="title">Services and prices</h1>
 
     <div class="service-row">
       <div class="service-image">
-        <img src="makeup.jpg.jpg" alt="Makeup">
+        <img src="${pageContext.request.contextPath}/resources/images/makeup.png" alt="Makeup">
       </div>
       <div class="service-box">
         <h2>Make up</h2>
@@ -40,13 +43,13 @@
         </ul>
       </div>
       <div class="service-image">
-        <img src="hair.jpg.jpg" alt="Hair Styling">
+        <img  src="${pageContext.request.contextPath}/resources/images/hair.png" alt="Hair Styling">
       </div>
     </div>
 
     <div class="service-row">
       <div class="service-image">
-        <img src="nail.jpg.jpg" alt="Nail Care">
+        <img src="nail.jpg.jpg" src="${pageContext.request.contextPath}/resources/images/nails.png" alt="Nail Care">
       </div>
       <div class="service-box">
         <h2>Nail care</h2>
@@ -77,7 +80,7 @@
 
     <div class="service-row">
       <div class="service-image">
-        <img src="spa.jpg.jpg" alt="SPA">
+        <img src="${pageContext.request.contextPath}/resources/images/spa.jpg" alt="SPA">
       </div>
       <div class="service-box">
         <h2>SPA procedures</h2>
@@ -90,5 +93,6 @@
       </div>
     </div>
   </div>
+  <jsp:include page="header.jsp"/>
 </body>
 </html>

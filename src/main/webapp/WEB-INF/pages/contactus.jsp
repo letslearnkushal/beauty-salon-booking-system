@@ -8,9 +8,11 @@
 <link rel="stylesheet" type="text/css" href="<%= request.getContextPath() %>/css/contactus.css"/>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <link href="https://fonts.googleapis.com/css2?family=Italianno&display=swap" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/header.css">
+          <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/footer.css">
 </head>
 <body>
-
+<jsp:include page="header.jsp"/>
     <div class="contact-wrapper">
 
         <!-- HEADING -->
@@ -99,6 +101,6 @@
     </div>
 
     <script src="contact-script.js"></script>
-
+<jsp:include page="footer.jsp"/>
 </body>
 </html>
