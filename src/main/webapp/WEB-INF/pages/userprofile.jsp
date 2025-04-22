@@ -18,10 +18,10 @@
     <p class="member-since">MEMBER SINCE 2025</p>
 
     <nav class="profile-nav">
-      <a href="${pageContext.request.contextPath}/pages/userprofile.jsp"><span>👤</span> Personal Info</a>
-      <a href="${pageContext.request.contextPath}/pages/userbookinghistory.jsp"><span>⏰</span> Booking History</a>
-      <a href="${pageContext.request.contextPath}/pages/usersettings.jsp"><span>⚙️</span> Settings</a>
-      <a href="${pageContext.request.contextPath}/pages/login.jsp"><span>📕</span> Logout</a>
+      <a href="${pageContext.request.contextPath}/userprofile"><span>👤</span> Personal Info</a>
+      <a href="${pageContext.request.contextPath}/userbookinghistory"><span>⏰</span> Booking History</a>
+      <a href="${pageContext.request.contextPath}/usersettings"><span>⚙️</span> Settings</a>
+      <a href="${pageContext.request.contextPath}/login"><span>📕</span> Logout</a>
     </nav>
   </aside>
 
@@ -37,26 +37,33 @@
         </div>
       </div>
 
-      <div class="profile-info">
-        <div class="info-row">
-          <label>Name</label>
-          <span><input type="text" class="form-control"  value="your name"></span>
-        </div>
-        <div class="info-row">
-          <label>Email</label>
-          <span><input type="text" class="form-control"  value="yourname@gmail.com"></span>
-        </div>
-        <div class="info-row">
-          <label>Mobile number</label>
-          <span><input type="text" class="form-control"  value="9800000000"></span>
-        </div>
-        <div class="info-row">
-          <label>Location</label>
-          <span><input type="text" class="form-control"  value="Kathmandu"></span>
-        </div>
-      </div>
+ <form action="${pageContext.request.contextPath}/userprofile" method="post">
+  <div class="profile-info">
+    <div class="info-row">
+      <label>First Name</label>
+      <span><input type="text" class="form-control" name="firstName" value="${user.first_name}"></span>
+    </div>
+    <div class="info-row">
+      <label>Last Name</label>
+      <span><input type="text" class="form-control" name="lastName" value="${user.last_name}"></span>
+    </div>
+    <div class="info-row">
+      <label>Email</label>
+      <span><input type="text" class="form-control" name="email" value="${user.email}"></span>
+    </div>
+    <div class="info-row">
+      <label>Mobile number</label>
+      <span><input type="text" class="form-control" name="number" value="${user.phone}"></span>
+    </div>
 
-      <button class="save-btn">Save Changes</button>
+    <!-- Hidden input for user ID -->
+    <input type="hidden" name="user_id" value="${user.user_id}">
+
+    <!-- Submit Button -->
+    <button class="save-btn" type="submit">Save Changes</button>
+  </div>
+</form>
+
     </div>
 
     

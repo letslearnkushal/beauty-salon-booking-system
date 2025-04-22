@@ -19,10 +19,10 @@
     <p class="member-since">MEMBER SINCE 2025</p>
 
     <nav class="profile-nav">
-      <a href="${pageContext.request.contextPath}/pages/userprofile.jsp"><span>👤</span> Personal Info</a>
-      <a href="${pageContext.request.contextPath}/pages/userbookinghistory.jsp"><span>⏰</span> Booking History</a>
-      <a href="${pageContext.request.contextPath}/pages/usersettings.jsp"><span>⚙️</span> Settings</a>
-      <a href="${pageContext.request.contextPath}/pages/login.jsp"><span>📕</span> Logout</a>
+      <a href="${pageContext.request.contextPath}/userprofile"><span>👤</span> Personal Info</a>
+      <a href="${pageContext.request.contextPath}/userbookinghistory"><span>⏰</span> Booking History</a>
+      <a href="${pageContext.request.contextPath}/usersettings"><span>⚙️</span> Settings</a>
+      <a href="${pageContext.request.contextPath}/login"><span>📕</span> Logout</a>
     </nav>
   </aside>
 <!-- Main content -->

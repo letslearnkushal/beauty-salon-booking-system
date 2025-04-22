@@ -20,8 +20,8 @@
       </ul>
     </nav>
       <div class="auth-buttons">
-    <button class="login-btn">Login</button>
-    <button class="signup-btn" onclick="location.href='${pageContext.request.contextPath}/controller/register'">Sign Up</button>
+    <button class="login-btn" onclick="location.href='${pageContext.request.contextPath}/login'">Login</button>
+    <button class="signup-btn" onclick="location.href='${pageContext.request.contextPath}/register'">Sign Up</button>
   </div>
     <h1 class="brand">The Beauty Lab</h1>
   </header>

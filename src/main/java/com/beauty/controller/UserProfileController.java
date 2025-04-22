@@ -7,19 +7,23 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+import com.beauty.model.modeluser;
+import com.beauty.service.UpdateService;
+import com.beauty.util.SessionUtil;
+
 /**
  * Servlet implementation class userprofile
  */
 @WebServlet(asyncSupported = true, urlPatterns = { "/userprofile" })
 public class UserProfileController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	private UpdateService updateService;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
     public UserProfileController() {
-        super();
-        // TODO Auto-generated constructor stub
+        this.updateService = new UpdateService();
     }
 
 	/**
@@ -27,6 +31,15 @@ public class UserProfileController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		if (request.getSession().getAttribute("user") != null) {
+            modeluser user = (modeluser) SessionUtil.getAttribute(request, "student");
+            SessionUtil.removeAttribute(request, "user");
+            request.setAttribute("user", user);
+        }
+		
+		
+		
+		
 		request.getRequestDispatcher("/WEB-INF/pages/userprofile.jsp").forward(request, response);
 	}
 
@@ -34,8 +47,50 @@ public class UserProfileController extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
-	}
+		
+		int userid = Integer.parseInt(request.getParameter("user_id"));
+        String firstName = request.getParameter("firstName");
+        String lastName = request.getParameter("lastName");
+        String email = request.getParameter("email");
+        String number = request.getParameter("number");
+        
+        System.out.println("user_id = " + request.getParameter("user_id"));
 
+        // Create StudentModel object with updated data
+        modeluser user = new modeluser(userid, firstName, 
+                lastName, email, number);
+
+        // Attempt to update student information in the database
+        Boolean result = updateService.updateUserInfo(user);
+        System.out.printf("name", firstName);
+        if (result != null && result) {
+        	response.sendRedirect(request.getContextPath() + "/WEB-INF/pages/userprofile"); // Redirect to dashboard on success
+        } else {
+            request.getSession().setAttribute("user", user);
+            handleUpdateFailure(request, response, result); // Handle failure
+        }
+    }
+
+    /**
+     * Handles update failures by setting an error message and forwarding the request 
+     * back to the update page.
+     * 
+     * @param req The HttpServletRequest object containing the request data.
+     * @param resp The HttpServletResponse object used to return the response.
+     * @param loginStatus Indicates the result of the update operation.
+     * @throws ServletException If an error occurs during request processing.
+     * @throws IOException If an input or output error occurs.
+     */
+    private void handleUpdateFailure(HttpServletRequest req, HttpServletResponse resp, Boolean loginStatus)
+            throws ServletException, IOException {
+        // Determine error message based on update result
+        String errorMessage;
+        if (loginStatus == null) {
+            errorMessage = "Our server is under maintenance. Please try again later!";
+        } else {
+            errorMessage = "Update Failed. Please try again!";
+        }
+        req.setAttribute("error", errorMessage);
+        req.getRequestDispatcher(req.getContextPath() + "/WEB-INF/pages/userprofile.jsp").forward(req, resp);
+    }
 }

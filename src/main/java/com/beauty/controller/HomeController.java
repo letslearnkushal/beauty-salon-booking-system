@@ -30,12 +30,6 @@ public class HomeController extends HttpServlet {
 		request.getRequestDispatcher("/WEB-INF/pages/home1.jsp").forward(request, response);
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		request.getRequestDispatcher("/WEB-INF/pages/userregistration.jsp").forward(request, response);
-	}
+
 
 }

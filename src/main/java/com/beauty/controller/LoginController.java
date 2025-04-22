@@ -64,6 +64,7 @@ public class LoginController extends HttpServlet {
 		    Boolean isAdmin = loginService.loginUser(username, password);
 
 		    if (isAdmin == null) {
+		    	handleLoginFailure(request, response, loginStatus);
 		        request.setAttribute("errorMsg", "Login failed. Please try again.");
 		        request.getRequestDispatcher("/WEB-INF/pages/login.jsp").forward(request, response);
 		        System.out.println("errrorrr");
@@ -72,13 +73,24 @@ public class LoginController extends HttpServlet {
 		    	 request.getRequestDispatcher("/WEB-INF/pages/admindashboard.jsp").forward(request, response);
 		    } else {
 		    	 System.out.println("user page");
-		    	 request.getRequestDispatcher("/WEB-INF/pages/home1.jsp").forward(request, response);
+		    	 request.getRequestDispatcher("/WEB-INF/pages/userhome.jsp").forward(request, response);
 		    }
 	}
 
 	private Boolean loginUser(modeluser modeluser) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+	private void handleLoginFailure(HttpServletRequest req, HttpServletResponse resp, Boolean loginStatus)
+			throws ServletException, IOException {
+		String errorMessage;
+		if (loginStatus == null) {
+			errorMessage = "Our server is under maintenance. Please try again later!";
+		} else {
+			errorMessage = "User credential mismatch. Please try again!";
+		}
+		req.setAttribute("error", errorMessage);
+		req.getRequestDispatcher("/WEB-INF/pages/login.jsp").forward(req, resp);
 	}
 	
 }

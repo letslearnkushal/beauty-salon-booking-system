@@ -6,9 +6,11 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" type="text/css" href="<%= request.getContextPath() %>/css/userregistration.css"/>
+   <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/header.css">
+          <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/footer.css">
 </head>
 <body>
-
+<jsp:include page="header.jsp"/>
 <div class="form-wrapper">
     <div class="form-container">
         <!-- Left Side: All Text and Form Fields -->
@@ -52,14 +54,9 @@
                     <label for="dob">Date Of Birth :</label>
                     <input type="date"	id="Birthdate" name="Birthdate" required>
                 </div>
-                  <div class="input-box">
-					<label for="gender">Role:</label> 
-						<select class="select"  name="role_id"  style="height: 40px;">
-							<option value="user">user </option>
-							<option value="admin">admin</option>
-						</select>
-						</div>
-              
+                
+					
+					
                 <div class="input-box">
                     <label for="phone">Username :</label>
                     <input type="text" name="username" id="username" placeholder="Username" required>
@@ -76,12 +73,16 @@
                 </div>
                   <!-- Submit Button -->
                 <div class="input-box">
-                    <button type="submit" class="btn">Register </button>
+                    <button type="submit" class="btn" >Register </button>
                 </div>
-                <c:if test="${not empty errorMsg}">
-    <p style="color:red">${errorMsg}</p>
-</c:if>
+                	<select class="select"  name="role_id"  style="height: 40px;     visibility: hidden;">
+							<option value="user">user </option>
+							<option value="admin">admin</option>
+						</select>
+						
                 
+    <p style="color:red">${errorMsg}</p>
+      
             </form>
         </div>
         <!-- Right Side: Full Height Image -->
@@ -90,7 +91,7 @@
         </div>
     </div>
 </div>
-  
+  <jsp:include page="footer.jsp"/>
 
 </body>
 </html>

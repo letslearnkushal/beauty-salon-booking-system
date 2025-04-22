@@ -1,6 +1,5 @@
 package com.beauty.model;
 
-import java.time.LocalDate;
 
 public class modeluser {
 	private int user_id;
@@ -37,6 +36,21 @@ public class modeluser {
 		this.role_id = role_id;
 		this.role_name = role_name;
 	}
+	
+	public modeluser(int user_id, String first_name, String last_name,String email,String phone) {
+		super();
+		this.user_id = user_id;
+		this.first_name = first_name;
+		this.last_name = last_name;
+		this.email = email;
+		this.phone = phone;
+	}
+	public modeluser(int role_id, String role_name) {
+		super();
+		this.role_id = role_id;
+		this.role_name = role_name;
+	}
+	
 	public int getUser_id() {
 		return user_id;
 	}

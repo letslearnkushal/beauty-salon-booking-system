@@ -57,7 +57,7 @@
                     <p class="welcome-text">All systems are running smoothly! You have <span class="highlight">3 unread alerts!</span></p>
                 </div>
                 
-                <!-- Weather Section - Simplified -->
+                <!-- Weather Section - Simplified 
                 <div class="weather-section">
                     <div class="weather-info">
                         <div class="weather-temp">
@@ -67,31 +67,32 @@
                         <div class="weather-sublocation">Illinois</div>
                     </div>
                 </div>
+                -->
                 
                 <!-- Stats Grid -->
                 <div class="stats-grid">
                     <div class="stats-card blue">
                         <div class="stats-title">Today's Bookings</div>
                         <div class="stats-value">4006</div>
-                        <div class="stats-delta">10.00% (30 days)</div>
+                       
                     </div>
                     
                     <div class="stats-card purple">
                         <div class="stats-title">Total Bookings</div>
                         <div class="stats-value">61344</div>
-                        <div class="stats-delta">22.00% (30 days)</div>
+                       
                     </div>
                     
                     <div class="stats-card blue">
-                        <div class="stats-title">Number of Meetings</div>
+                        <div class="stats-title">Number of Appoinments</div>
                         <div class="stats-value">34040</div>
-                        <div class="stats-delta">2.00% (30 days)</div>
+                       
                     </div>
                     
                     <div class="stats-card coral">
                         <div class="stats-title">Number of Clients</div>
                         <div class="stats-value">47033</div>
-                        <div class="stats-delta">0.22% (30 days)</div>
+                      
                     </div>
                 </div>
                 

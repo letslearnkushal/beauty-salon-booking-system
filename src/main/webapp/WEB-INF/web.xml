@@ -19,4 +19,6 @@
   <servlet-name>default</servlet-name>
   <url-pattern>/resources/images/*</url-pattern>
   </servlet-mapping>
+  
+
 </web-app>
