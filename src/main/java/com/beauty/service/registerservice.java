@@ -23,7 +23,7 @@ public class registerservice {
 		/**
 		 * Registers a new customer in the database.
 		 *
-		 * @param studentModel the student details to be registered
+		 * @param modeluser the student details to be registered
 		 * @return Boolean indicating the success of the operation
 		 */
 		public Boolean addUser(modeluser model_user) {

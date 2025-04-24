@@ -144,7 +144,7 @@
   <!-- Sidebar -->
   <aside class="profile-sidebar">
     <div class="profile-pic"></div>
-    <h2>Name Surname</h2>
+    <h2>${user.username}</h2>
     <p class="member-since">MEMBER SINCE 2025</p>
 
     <nav class="profile-nav">

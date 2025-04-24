@@ -39,43 +39,41 @@ public class LoginController extends HttpServlet {
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		 String username = request.getParameter("username");
+	 */protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		    String username = request.getParameter("username");
 		    String password = request.getParameter("password");
-		    
-		    
-		 
 
-			modeluser modeluser = new modeluser(username, password);
-			Boolean loginStatus = loginUser(modeluser);
-
-			if (loginStatus != null && loginStatus) {
-				SessionUtil.setAttribute(request, "username", username);
-				if (username.equals("admin")) {
-					CookieUtil.addCookie(response, "role_id", "admin", 5 * 30);
-					response.sendRedirect(request.getContextPath() + "/dashboard"); // Redirect to /home
-				} else {
-					CookieUtil.addCookie(response, "role_id", "user", 5 * 30);
-					response.sendRedirect(request.getContextPath() + "/home1"); // Redirect to /home
-				}
-			} 
+		    // Call service to validate login
 		    loginService loginService = new loginService();
-		    Boolean isAdmin = loginService.loginUser(username, password);
+		    Boolean isAdmin = loginService.loginUser(username, password); // This will handle decryption and return role-based boolean
+		    modeluser user=loginService.getUser(username);
+		    
+		    if (user!=null) {
+		    	if (isAdmin == null) {
+			        // Connection or system error
+			        request.setAttribute("errorMsg", "Login failed. Please try again.");
+			        request.getRequestDispatcher("/WEB-INF/pages/login.jsp").forward(request, response);
+			        System.out.println("Login failed due to null (probably DB error)");
+			    } else {
+			        // Save session
+			        SessionUtil.setAttribute(request, "user", user);
 
-		    if (isAdmin == null) {
-		    	handleLoginFailure(request, response, loginStatus);
-		        request.setAttribute("errorMsg", "Login failed. Please try again.");
-		        request.getRequestDispatcher("/WEB-INF/pages/login.jsp").forward(request, response);
-		        System.out.println("errrorrr");
-		    } else if (isAdmin) {
-		    	 System.out.println("admin page ");
-		    	 request.getRequestDispatcher("/WEB-INF/pages/admindashboard.jsp").forward(request, response);
-		    } else {
-		    	 System.out.println("user page");
-		    	 request.getRequestDispatcher("/WEB-INF/pages/userhome.jsp").forward(request, response);
+			        // Set cookie based on role
+			        if (isAdmin) {
+			            CookieUtil.addCookie(response, "role_id", "admin", 5 * 30);
+			            System.out.println("Redirecting to admin page");
+			            request.getRequestDispatcher("/WEB-INF/pages/admindashboard.jsp").forward(request, response);
+			        } else {
+			            CookieUtil.addCookie(response, "role_id", "user", 5 * 30);
+			            System.out.println("Redirecting to user page");
+			            request.getRequestDispatcher("/WEB-INF/pages/userhome.jsp").forward(request, response);
+			        }
+			    }
+		    } 
+		    else {
+		    	System.out.println("User not found");
 		    }
-	}
+		}
 
 	private Boolean loginUser(modeluser modeluser) {
 		// TODO Auto-generated method stub

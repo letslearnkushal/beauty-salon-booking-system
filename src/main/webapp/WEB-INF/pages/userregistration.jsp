@@ -6,8 +6,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" type="text/css" href="<%= request.getContextPath() %>/css/userregistration.css"/>
-   <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/header.css">
-          <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/footer.css">
+
 </head>
 <body>
 <jsp:include page="header.jsp"/>
@@ -30,6 +29,7 @@
                         <input type="text" id="lastName" name="lastName" placeholder="Last name" required>
                     </div>
                 </div>
+                <div class="row">
                 <!-- Email -->
                 <div class="input-box">
                     <label for="email">Email :</label>
@@ -40,7 +40,7 @@
                     <label for="phone">Phone No :</label>
                     <input type="tel" id="phone" name="phone" placeholder="Phone number" required>
                 </div>
-                
+                </div>
                 <div class="input-box">
 					<label for="gender">Gender:</label> 
 						<select class="select"  name="gender"  style="height: 40px;">
@@ -52,7 +52,7 @@
                 <!-- DOB -->
                 <div class="input-box">
                     <label for="dob">Date Of Birth :</label>
-                    <input type="date"	id="Birthdate" name="Birthdate" required>
+                    <input type="date"	id="Birthdate" name="dob" required>
                 </div>
                 
 					
@@ -71,6 +71,12 @@
                     <input type="password" id="re-password" name="re-Password" placeholder="Re-Password" required>
                 </div>
                 </div>
+                <div class="input-box">
+                    <label for="image">Insert Your Display Picure :</label>
+                     <input type="file" id="myFile" name="imagefile" required>
+ 					
+                </div>
+                
                   <!-- Submit Button -->
                 <div class="input-box">
                     <button type="submit" class="btn" >Register </button>

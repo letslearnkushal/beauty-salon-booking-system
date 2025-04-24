@@ -7,6 +7,7 @@ import java.sql.SQLException;
 
 import com.beauty.config.bdconfig;
 import com.beauty.model.modeluser;
+import com.beauty.util.PasswordUtil;
 
 public class loginService {
 	 private Connection dbConn;
@@ -59,21 +60,73 @@ public class loginService {
 	            ResultSet rs = stmt.executeQuery();
 
 	            if (rs.next()) {
-	                String dbPassword = rs.getString("password");
+	                String dbEncryptedPassword = rs.getString("password");
 	                int roleId = rs.getInt("role_id");
 
-	                if (password.equals(dbPassword)) {
-	                    return roleId == 2; // true if admin, false if normal user
+	                // 🔐 Decrypt the password
+	                String decryptedPassword = PasswordUtil.decrypt(dbEncryptedPassword, username);
+
+	                // ✅ Compare decrypted password with user input
+	                if (password.equals(decryptedPassword)) {
+	                    return roleId == 2; // return true for admin, false for user
+	                } else {
+	                    System.out.println("Password mismatch: " + password + " vs " + decryptedPassword);
 	                }
+	            } else {
+	                System.out.println("No user found with username: " + username);
 	            }
-	        } catch (SQLException e) {
+	        } catch (Exception e) {
 	            e.printStackTrace();
 	            return null;
 	        }
 
-	        return null;
+	        return false;
 	    }
-	
+	    public modeluser getUser(String username) {
+	    	modeluser user=new modeluser(username);
+	    	
+	    	String query = "SELECT * FROM user WHERE username = ?";
+
+	        try (PreparedStatement stmt = dbConn.prepareStatement(query)) {
+	            stmt.setString(1, username);
+	            ResultSet rs = stmt.executeQuery();
+
+	            if (rs.next()) {
+	            	user.setUser_id(rs.getInt("user_id"));
+	            	user.setFirst_name(rs.getString("first_name"));
+	            	user.setLast_name(rs.getString("last_name"));
+	            	user.setEmail(rs.getString("email"));
+	            	user.setPhone(rs.getString("phone"));
+	            	user.setGender(rs.getString("gender"));
+	            	user.setUsername(rs.getString("username"));
+	            	user.setPassword(rs.getString("password"));
+
+	               return user;
+	            } else {
+	            	System.out.println("No user found with username: ");
+	            	return null;  
+	            }
+	        } catch (Exception e) {
+	            e.printStackTrace();
+	            return null;
+	        }
+	    }
+	    public boolean isValidUser(String username, String password) {
+	        String query = "SELECT password FROM user WHERE username = ?";
+	        try (PreparedStatement stmt = dbConn.prepareStatement(query)) {
+	            stmt.setString(1, username);
+	            ResultSet rs = stmt.executeQuery();
+	            if (rs.next()) {
+	                String dbPass = rs.getString("password");
+	                if (dbPass == null) return false;
+	                String decryptedPassword = PasswordUtil.decrypt(dbPass, username);
+	                return password.equals(decryptedPassword);
+	            }
+	        } catch (Exception e) {
+	            e.printStackTrace();
+	        }
+	        return false;
+	    }
 	    private boolean validatePassword(ResultSet result, String password) throws SQLException {
 	        String dbPassword = result.getString("password");
 	        // Assuming you're using a PasswordUtil class to handle password decryption

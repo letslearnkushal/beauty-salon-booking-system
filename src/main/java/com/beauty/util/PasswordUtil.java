@@ -92,7 +92,7 @@ public class PasswordUtil {
 	    public static String decrypt(String encryptedPassword, String username) {
 			try {
 				byte[] decode = Base64.getDecoder().decode(encryptedPassword.getBytes(UTF_8));
-		
+				System.out.println("Password in DB is null for user: " + username);
 				// get back the iv and salt from the cipher text
 				ByteBuffer bb = ByteBuffer.wrap(decode);
 		

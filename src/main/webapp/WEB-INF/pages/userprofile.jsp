@@ -37,7 +37,7 @@
         </div>
       </div>
 
- <form action="${pageContext.request.contextPath}/userprofile" method="post">
+ <form action="${pageContext.request.contextPath}/userprofile" method="put">
   <div class="profile-info">
     <div class="info-row">
       <label>First Name</label>

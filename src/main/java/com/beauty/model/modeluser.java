@@ -1,5 +1,6 @@
 package com.beauty.model;
 
+import java.time.LocalDate;
 
 public class modeluser {
 	private int user_id;
@@ -12,15 +13,34 @@ public class modeluser {
 	private String password;
 	private int role_id;
 	private String role_name;
-
-	public modeluser() {
-		
+	 private String imageUrl;
+	 LocalDate dob ;
+	 
+	
+	public modeluser(String username) {
+		this.username = username;
+	
 	}
+	
+
 	public modeluser(String username, String password) {
 		this.username = username;
 		this.password = password;
 	}
-	
+//	public modeluser(String first_name, String last_name, String username, LocalDate dob,
+//            String gender, String email, String phone, String password, String imageUrl, int role_id) {
+//	this.first_name = first_name;
+//	this.last_name = last_name;
+//	this.username = username;
+//	this.dob = dob;
+//	this.gender = gender;
+//	this.email = email;
+//	this.phone = phone;
+//	this.password = password;
+//	this.imageUrl = imageUrl;
+//	this.role_id = role_id;
+//
+//	}
 	public modeluser(int user_id, String first_name, String last_name,String email,String phone,
 			 String gender, String username ,String password, int role_id, String role_name) {
 		super();
@@ -51,6 +71,11 @@ public class modeluser {
 		this.role_name = role_name;
 	}
 	
+	public modeluser() {
+		// TODO Auto-generated constructor stub
+	}
+
+
 	public int getUser_id() {
 		return user_id;
 	}
@@ -112,6 +137,29 @@ public class modeluser {
 	public void setRole_name(String role_name) {
 		this.role_name = role_name;
 	}
+
+
+//	public String getImageUrl() {
+//		// TODO Auto-generated method stub
+//		return null;
+//	}
+//
+//
+//	public void setImageUrl(String imageUrl) {
+//		this.imageUrl = imageUrl;
+//	}
+
+
+//	public LocalDate getDob() {
+//		return dob;
+//	}
+//
+//
+//	public void setDob(LocalDate dob) {
+//		this.dob = dob;
+//	}
+//
+
 
 
 }

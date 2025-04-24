@@ -7,6 +7,9 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+import com.beauty.model.modeluser;
+import com.beauty.util.SessionUtil;
+
 /**
  * Servlet implementation class BookingHistoryController
  */
@@ -27,6 +30,11 @@ public class BookingHistoryController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		if (request.getSession().getAttribute("user") != null) {
+            modeluser user = (modeluser) SessionUtil.getAttribute(request, "user");
+//            SessionUtil.removeAttribute(request, "user");
+            request.setAttribute("user", user);
+        }
 		request.getRequestDispatcher("/WEB-INF/pages/userbookinghistory.jsp").forward(request, response);
 	}
 

@@ -32,8 +32,8 @@ public class UserProfileController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		if (request.getSession().getAttribute("user") != null) {
-            modeluser user = (modeluser) SessionUtil.getAttribute(request, "student");
-            SessionUtil.removeAttribute(request, "user");
+            modeluser user = (modeluser) SessionUtil.getAttribute(request, "user");
+//            SessionUtil.removeAttribute(request, "user");
             request.setAttribute("user", user);
         }
 		
@@ -48,27 +48,32 @@ public class UserProfileController extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		int userid = Integer.parseInt(request.getParameter("user_id"));
-        String firstName = request.getParameter("firstName");
-        String lastName = request.getParameter("lastName");
-        String email = request.getParameter("email");
-        String number = request.getParameter("number");
-        
-        System.out.println("user_id = " + request.getParameter("user_id"));
+		String method=request.getParameter("_method");
+		if ("PUT".equals(method)) {
+//			handlePutRequest(request);
+		}else {
+			int userid = Integer.parseInt(request.getParameter("user_id"));
+	        String firstName = request.getParameter("firstName");
+	        String lastName = request.getParameter("lastName");
+	        String email = request.getParameter("email");
+	        String number = request.getParameter("number");
+	        
+	        System.out.println("user_id = " + request.getParameter("user_id"));
 
-        // Create StudentModel object with updated data
-        modeluser user = new modeluser(userid, firstName, 
-                lastName, email, number);
+	        // Create StudentModel object with updated data
+	        modeluser user = new modeluser(userid, firstName, 
+	                lastName, email, number);
 
-        // Attempt to update student information in the database
-        Boolean result = updateService.updateUserInfo(user);
-        System.out.printf("name", firstName);
-        if (result != null && result) {
-        	response.sendRedirect(request.getContextPath() + "/WEB-INF/pages/userprofile"); // Redirect to dashboard on success
-        } else {
-            request.getSession().setAttribute("user", user);
-            handleUpdateFailure(request, response, result); // Handle failure
-        }
+	        // Attempt to update student information in the database
+	        Boolean result = updateService.updateUserInfo(user);
+	        System.out.printf("name", firstName);
+	        if (result != null && result) {
+	        	response.sendRedirect(request.getContextPath() + "/WEB-INF/pages/userprofile"); // Redirect to dashboard on success
+	        } else {
+	            request.getSession().setAttribute("user", user);
+	            handleUpdateFailure(request, response, result); // Handle failure
+	        }
+		}
     }
 
     /**
@@ -93,4 +98,9 @@ public class UserProfileController extends HttpServlet {
         req.setAttribute("error", errorMessage);
         req.getRequestDispatcher(req.getContextPath() + "/WEB-INF/pages/userprofile.jsp").forward(req, resp);
     }
+    
+    
+//    private void handlePutRequest(HttpServletRequest request) {
+//    	q1` mj	
+//    }
 }
