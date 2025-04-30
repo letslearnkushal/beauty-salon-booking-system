@@ -81,7 +81,7 @@
                 <div class="input-box">
                     <button type="submit" class="btn" >Register </button>
                 </div>
-                	<select class="select"  name="role_id"  style="height: 40px;     visibility: hidden;">
+                	<select class="select"  name="role_id"  style="height: 40px;     ">
 							<option value="user">user </option>
 							<option value="admin">admin</option>
 						</select>

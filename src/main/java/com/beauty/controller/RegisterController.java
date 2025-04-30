@@ -94,7 +94,7 @@ public class RegisterController extends HttpServlet {
 		           modeluser.setEmail(email);
 		           modeluser.setPhone(number);
 		           try {
-		        	    String encryptedPassword = PasswordUtil.encrypt(password, username);
+		        	    String encryptedPassword = PasswordUtil.encrypt( password);
 		        	    modeluser.setPassword(encryptedPassword);
 		        	} catch (Exception e) {
 		        	    e.printStackTrace();
