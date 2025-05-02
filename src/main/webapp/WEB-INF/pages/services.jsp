@@ -11,7 +11,7 @@
           <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/footer.css">
 </head>
 <body>
-<jsp:include page="userheader.jsp"/>
+<jsp:include page="header.jsp"/>
 <div class="services-container">
     <h1 class="title">Services and prices</h1>
 
@@ -93,6 +93,6 @@
       </div>
     </div>
   </div>
-  <jsp:include page="header.jsp"/>
+  <jsp:include page="footer.jsp"/>
 </body>
 </html>

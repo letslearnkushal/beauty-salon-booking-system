@@ -26,7 +26,7 @@
   <div class="hero-text">
       <h1>Glow Up With Confidence</h1>
       <p>Book Your Beauty Appointments with Ease and Elegance</p>
-     <button class="cta-btn" onclick="location.href='${pageContext.request.contextPath}/pages/booking.jsp'">BOOK NOW</button>
+     <button class="cta-btn" onclick="location.href='${pageContext.request.contextPath}/bookappointment'">BOOK NOW</button>
   </div>
 </div>
 
@@ -79,7 +79,7 @@
 
     </div>
 
-    <button class="view-more-btn">View More</button>
+    <button class="view-more-btn" onclick="location.href='${pageContext.request.contextPath}/servicescontroller'">View More</button>
 </section>
 
 
@@ -107,7 +107,7 @@
                 <li><span class="service-name">Spa and More</span> <span class="price">Rs. 5999</span></li>
             </ul>
 
-            <button class="view-more-btn">View More</button>
+            <button class="view-more-btn" onclick="location.href='${pageContext.request.contextPath}/servicescontroller'">View More</button>
         </div>
 
     </div>
