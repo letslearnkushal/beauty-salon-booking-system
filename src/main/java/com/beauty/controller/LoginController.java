@@ -55,7 +55,7 @@ public class LoginController extends HttpServlet {
         // Check if login was successful - isAdmin will be true or false for successful login, null for system error
         if (isAdmin == null) {
             // Connection or system error
-            handleLoginFailure(request, response, null);
+            handleLoginFailure(request, response, false);
             System.out.println("Login failed due to system error (null return)");
             return;
         }
@@ -66,10 +66,11 @@ public class LoginController extends HttpServlet {
             modeluser user = loginService.getUser(username);
             
             if (user != null) {
+            	
                 // Additional verification step: check if this user was actually authenticated
                 // by verifying passwords directly
                 boolean isLoginSuccessful = loginService.isValidUser(username, password);
-                
+                SessionUtil.setAttribute(request, "user", user);
                 if (!isLoginSuccessful) {
                     System.out.println("User found but password validation failed");
                     handleLoginFailure(request, response, false);
@@ -78,10 +79,11 @@ public class LoginController extends HttpServlet {
                 
                 // Now we know this is a valid regular user
                 // Save session
-                SessionUtil.setAttribute(request, "user", user);
+               
                 CookieUtil.addCookie(response, "role_id", "user", 5 * 30);
                 System.out.println("Redirecting to user page for validated user");
-                request.getRequestDispatcher("/WEB-INF/pages/userhome.jsp").forward(request, response);
+                response.sendRedirect(request.getContextPath() + "/userhome"); 
+                //request.getRequestDispatcher("/WEB-INF/pages/userhome.jsp").forward(request, response);
             } else {
                 // User not found or password incorrect
                 System.out.println("User not found or login credentials invalid");
@@ -96,7 +98,8 @@ public class LoginController extends HttpServlet {
                 SessionUtil.setAttribute(request, "user", user);
                 CookieUtil.addCookie(response, "role_id", "admin", 5 * 30);
                 System.out.println("Redirecting to admin page");
-                request.getRequestDispatcher("/WEB-INF/pages/admindashboard.jsp").forward(request, response);
+                response.sendRedirect(request.getContextPath() + "/adminDashboard"); 
+                //request.getRequestDispatcher("/WEB-INF/pages/admindashboard.jsp").forward(request, response);
             } else {
                 System.out.println("Admin user authentication succeeded but user retrieval failed");
                 handleLoginFailure(request, response, false);

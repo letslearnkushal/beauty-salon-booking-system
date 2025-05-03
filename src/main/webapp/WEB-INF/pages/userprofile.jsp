@@ -14,7 +14,7 @@
   <!-- Sidebar -->
   <aside class="profile-sidebar">
     <div class="profile-pic"></div>
-    <h2>Name Surname</h2>
+     <h2>${user.username}</h2>
     <p class="member-since">MEMBER SINCE 2025</p>
 
     <nav class="profile-nav">
@@ -32,8 +32,8 @@
       <div class="profile-header">
         <div class="profile-pic small"></div>
         <div>
-          <h3>Your name</h3>
-          <p>Your name@gmail.com</p>
+          <h3>${user.first_name } ${user.last_name} </h3>
+          <p>${user.email}</p>
         </div>
       </div>
 
@@ -59,8 +59,7 @@
     <!-- Hidden input for user ID -->
     <input type="hidden" name="user_id" value="${user.user_id}">
 
-    <!-- Submit Button -->
-    <button class="save-btn" type="submit">Save Changes</button>
+
   </div>
 </form>
 

@@ -42,7 +42,7 @@ public class loginService {
             return null; // Return null for invalid credentials
         }
 
-        // Now determine if this is an admin or regular user
+        // Now determine if this is a user or admin
         String query = "SELECT role_id FROM user WHERE username = ?";
 
         try (PreparedStatement stmt = dbConn.prepareStatement(query)) {
@@ -51,7 +51,18 @@ public class loginService {
             
             if (rs.next()) {
                 int roleId = rs.getInt("role_id");
-                return roleId == 1; // Return true for admin (role_id=1), false for regular user
+                System.out.println("Retrieved role_id for user: " + roleId);
+                if (roleId == 1) {
+                    // role_id=1 means regular user, return false
+                    return false;
+                } else if (roleId == 2) {
+                    // role_id=2 means admin, return true
+                    return true;
+                } else {
+                    // Unknown role, treat as login failure for safety
+                    System.out.println("Unknown role_id: " + roleId);
+                    return null;
+                }
             } else {
                 System.out.println("No user found with username: " + username);
                 return null;
@@ -61,6 +72,7 @@ public class loginService {
             return null; // Return null for database errors
         }
     }
+
     
     /**
      * Check if the username and password are valid

@@ -1,10 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <title>The Beauty Lab - Login</title>
+<c:set var="contextPath" value="${pageContext.request.contextPath}" />
 <link rel="stylesheet" type="text/css"
 	href="${pageContext.request.contextPath}/css/login.css"/>
 	 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/header.css">
@@ -24,6 +26,7 @@
 				</form>
                 <p class="forgot">Forgot your Password? <a href="#">Click here</a></p>
                 <p class="create">Don’t have an account? <a href="#">Create one</a></p>
+                    <p style="color:red">${errorMsg}</p>
             </div>
             <div class="right-panel">
                 <img src="${pageContext.request.contextPath}/resources/images/salonenterior.jpg" alt="Salon Interior"> 

@@ -15,6 +15,7 @@ public class modeluser {
 	private String role_name;
 	 private String imageUrl;
 	 LocalDate dob ;
+	  private String decryptedPassword;
 	 
 	
 	public modeluser(String username) {
@@ -138,6 +139,15 @@ public class modeluser {
 		this.role_name = role_name;
 	}
 
+	
+
+	    public String getDecryptedPassword() {
+	        return decryptedPassword;
+	    }
+
+	    public void setDecryptedPassword(String decryptedPassword) {
+	        this.decryptedPassword = decryptedPassword;
+	    }
 
 //	public String getImageUrl() {
 //		// TODO Auto-generated method stub

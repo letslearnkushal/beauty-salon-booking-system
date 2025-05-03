@@ -48,35 +48,63 @@ public class RegisterController extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		// Get parameters
-				String firstName = request.getParameter("firstName");
-				String lastName = request.getParameter("lastName");
-				String username = request.getParameter("username");
-				String gender = request.getParameter("gender");
-				String email = request.getParameter("email");
-				String number = request.getParameter("phone");
-				String password = request.getParameter("password");
-				String retypePassword = request.getParameter("re-Password");
+	
 				String role_id = request.getParameter("role_id");
+
+			    // Get parameters
+		        String firstName = request.getParameter("firstName");
+		        String lastName = request.getParameter("lastName");
+		        String username = request.getParameter("username");
+		        String gender = request.getParameter("gender");
+		        String email = request.getParameter("email");
+		        String number = request.getParameter("phone");
+		        String password = request.getParameter("password");
+		        String retypePassword = request.getParameter("re-Password");
+		        String dobString = request.getParameter("dob");
+//		        Part imageFile = request.getPart("imagefile"); // For file upload
+		        
 				System.out.println("username: " + username);
 				System.out.println("email: " + email);
 				System.out.println("password: " + password);
 				System.out.println("retypePassword: " + retypePassword);
-				String errorMsg = "";
+		        String errorMsg = "";
 
-				if (username == null || username.isEmpty()) {
-				    errorMsg = "Username is required.";
-				} else if (email == null || email.isEmpty()) {
-				    errorMsg = "Email is required.";
-				} else if (!email.contains("@") || !email.contains(".")) {
-				    errorMsg = "Invalid email format.";
-				} else if (password == null || password.isEmpty()) {
-				    errorMsg = "Password is required.";
-				} else if (password.length() < 6) {
-				    errorMsg = "Password must be at least 6 characters.";
-				} else if (retypePassword == null || !password.equals(retypePassword)) {
-				    errorMsg = "Passwords do not match.";
-				}
-
+		        // Validate fields
+		        if (ValidationUtil.isNullOrEmpty(firstName)) {
+		            errorMsg = "First Name is required.";
+		        } else if (ValidationUtil.isNullOrEmpty(lastName)) {
+		            errorMsg = "Last Name is required.";
+		        } else if (ValidationUtil.isNullOrEmpty(username)) {
+		            errorMsg = "Username is required.";
+		        } else if (ValidationUtil.isNullOrEmpty(email)) {
+		            errorMsg = "Email is required.";
+		        } else if (!ValidationUtil.isValidEmail(email)) {
+		            errorMsg = "Invalid email format.";
+		        } else if (ValidationUtil.isNullOrEmpty(number)) {
+		            errorMsg = "Phone number is required.";
+		        } else if (!ValidationUtil.isValidPhoneNumber(number)) {
+		            errorMsg = "Phone number must be 10 digits and start with 98.";
+		        } else if (ValidationUtil.isNullOrEmpty(password)) {
+		            errorMsg = "Password is required.";
+		        } else if (!ValidationUtil.isValidPassword(password)) {
+		            errorMsg = "Password must be at least 8 characters and include at least 1 capital letter, 1 number, and 1 symbol.";
+		        } else if (!ValidationUtil.doPasswordsMatch(password, retypePassword)) {
+		            errorMsg = "Passwords do not match.";
+		        } else if (dobString == null || dobString.isEmpty()) {
+		            errorMsg = "Date of Birth is required.";
+		        } else {
+		            LocalDate dob = LocalDate.parse(dobString);
+		            if (!ValidationUtil.isAgeAtLeast16(dob)) {
+		                errorMsg = "You must be at least 16 years old.";
+		            }
+		        }
+//
+//		        // Validate image file
+//		        if (imageFile == null || imageFile.getSize() == 0) {
+//		            errorMsg = "Display picture is required.";
+//		        } else if (!ValidationUtil.isValidImageExtension(imageFile)) {
+//		            errorMsg = "Invalid image format. Only jpg, jpeg, png, and gif are allowed.";
+//		        }
 
 		        // If validation fails
 		        if (!errorMsg.isEmpty()) {

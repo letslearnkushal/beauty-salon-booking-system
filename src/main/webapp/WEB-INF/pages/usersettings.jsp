@@ -15,7 +15,7 @@
   <!-- Sidebar -->
   <aside class="profile-sidebar">
     <div class="profile-pic"></div>
-    <h2>Name Surname</h2>
+    <h2>${user.username}</h2>
     <p class="member-since">MEMBER SINCE 2025</p>
 
     <nav class="profile-nav">
@@ -31,84 +31,68 @@
         <h1>Change Personal Information</h1>
         
         <div class="form-card">
-            <form>
+            <form action="${pageContext.request.contextPath}/usersettings" method = "post">
                 <div class="form-row">
                     <div class="form-group">
-                        <label class="form-label">Name</label>
-                        <div class="form-control-wrapper">
-                            <input type="text" class="form-control" value="Name Surname">
-                            <button type="button" class="clear-button">×</button>
-                        </div>
+                        <label class="form-label">First Name:</label>
+                     
+                           <input type="text" class="form-control"  id="firstName" name="firstName" value="${user.first_name}" required>
+                       
                     </div>
                     <div class="form-group">
-                        <label class="form-label">username</label>
+                        <label class="form-label">Last Name</label>
                         <div class="form-control-wrapper">
-                            <input type="text" class="form-control" value="username">
-                            <button type="button" class="clear-button">×</button>
+                            <input type="text" class="form-control" id="lastName" name="lastName" value="${user.last_name}" required>
                         </div>
                     </div>
                 </div>
                 
                 <div class="form-row">
                     <div class="form-group">
-                        <label class="form-label">Phone Number</label>
-                        <div class="form-control-wrapper">
-                            <input type="tel" class="form-control" value="9802838383">
-                            <button type="button" class="clear-button">×</button>
-                        </div>
+                        <label class="form-label">Email:  </label>
+            			 <input type="email" id="email" class="form-control"  name="email" value="${user.email}"  required>
+                         
+  
                     </div>
                     <div class="form-group">
-                        <label class="form-label">Address</label>
+                        <label class="form-label">Phone No :</label>
                         <div class="form-control-wrapper">
-                            <input type="text" class="form-control" value="Kathmandu">
-                            <button type="button" class="clear-button">×</button>
+                
+                    <input type="tel" id="phone" name="phone" class="form-control" value="${user.phone}"  required>
+               
                         </div>
                     </div>
                 </div>
                 
                 <div class="form-row">
                     <div class="form-group">
-                        <label class="form-label">Age</label>
+                        <label class="form-label">Username :</label>
                         <div class="form-control-wrapper">
-                            <input type="number" class="form-control" value="19">
-                            <button type="button" class="clear-button">×</button>
+                         <input type="text" name="username" id="username" class="form-control" value="${user.username}"  required>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="form-label">Email</label>
+                        <label class="form-label">Password:</label>
                         <div class="form-control-wrapper">
-                            <input type="email" class="form-control" value="nameemail@gmail.com">
-                            <button type="button" class="clear-button">×</button>
+                            <input type="text" class="form-control" id="password" name="password" value="${userPassword}" required>
+                          </div>
                         </div>
-                    </div>
+                        <div class="form-group">
+                    <label for="image">Insert Your Display Picure :</label>
+                     <input type="file" class="form-control" id="myFile" name="imagefile" required>
+ 					
                 </div>
+                    </div>
+               
                 
                 <button type="submit" class="btn">Save Changes</button>
+      
             </form>
+                <p style="color:red">${errorMsg}</p>
+        </div>
         </div>
         
-        <div class="form-card">
-            <h2 style="margin-bottom: 20px;">Change Password</h2>
-            <form>
-                <div class="password-field">
-                    <label class="form-label">Current Password</label>
-                    <input type="password" class="form-control">
-                </div>
-                
-                <div class="password-field">
-                    <label class="form-label">New Password</label>
-                    <input type="password" class="form-control">
-                </div>
-                
-                <div class="password-field">
-                    <label class="form-label">Retype Password</label>
-                    <input type="password" class="form-control">
-                </div>
-                 <button type="submit" class="btn">Save Changes</button>
-            </form>
-        </div>
-    </div>
-
+ 
  </section>
  </div>
 
@@ -135,8 +119,9 @@
       background-color: #f0f0f0;
       width: 250px;
       padding: 20px;
-      height: 1080px;
+        height: auto;
     }
+    
 
     .profile-sidebar h2 {
       margin-bottom: 5px;
@@ -177,7 +162,7 @@
       background-color: #1e1e1e;
       color: white;
       padding: 30px;
-      height: max-content;
+     height: auto;
     }
       
 
