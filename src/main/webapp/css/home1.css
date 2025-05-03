@@ -62,7 +62,7 @@ nav {
 }
 
 .hero-image {
-  background-image: url('../pages/images.png'); /* Check path! */
+  
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

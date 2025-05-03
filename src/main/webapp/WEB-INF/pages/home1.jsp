@@ -21,7 +21,8 @@
 <body>
 
 <jsp:include page="header.jsp"/>
-<div class="hero-image">
+<div class="hero-image" style="background-image: url('${pageContext.request.contextPath}/resources/images/images.png');">
+	
   <div class="hero-text">
       <h1>Glow Up With Confidence</h1>
       <p>Book Your Beauty Appointments with Ease and Elegance</p>
@@ -41,35 +42,35 @@
     <h2>Our Services</h2>
     <div class="cards">
 
-        <div class="card" style="background-image: url('${pageContext.request.contextPath}/images/nails.png');">
+        <div class="card" style="background-image: url('${pageContext.request.contextPath}/resources/images/nails.png');">
             <div class="card-overlay">
                 <h3>Nail Care</h3>
                 <p>Rs. 3000</p>
             </div>
         </div>
 
-        <div class="card" style="background-image: url('${pageContext.request.contextPath}/images/hair.png');">
+        <div class="card" style="background-image: url('${pageContext.request.contextPath}/resources/images/hair.png');">
             <div class="card-overlay">
                 <h3>Hair Styling</h3>
                 <p>Rs. 4500</p>
             </div>
         </div>
 
-        <div class="card" style="background-image: url('${pageContext.request.contextPath}/images/makeup.png');">
+        <div class="card" style="background-image: url('${pageContext.request.contextPath}/resources/images/makeup.png');">
             <div class="card-overlay">
                 <h3>Make Up</h3>
                 <p>Rs. 2500</p>
             </div>
         </div>
 
-        <div class="card" style="background-image: url('${pageContext.request.contextPath}/images/cosmetology.png');">
+        <div class="card" style="background-image: url('${pageContext.request.contextPath}/resources/images/cosmetology.png');">
             <div class="card-overlay">
                 <h3>Cosmetology</h3>
                 <p>Rs. 8999</p>
             </div>
         </div>
 
-        <div class="card" style="background-image: url('${pageContext.request.contextPath}/images/spa.jpg');">
+        <div class="card" style="background-image: url('${pageContext.request.contextPath}/resources/images/spa.jpg');">
             <div class="card-overlay">
                 <h3>Spa and More</h3>
                 <p>Rs. 5999</p>
@@ -89,7 +90,7 @@
 
         <!-- Image on left -->
         <div class="pricing-image">
-            <img src="${pageContext.request.contextPath}/images/service.jpg" alt="Service Visual">
+            <img src="${pageContext.request.contextPath}/resources/images/service.jpg" alt="Service Visual">
         </div>
 
         <!-- Pricing List on right -->
