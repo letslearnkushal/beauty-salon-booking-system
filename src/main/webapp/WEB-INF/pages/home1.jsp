@@ -8,7 +8,8 @@
 
     <!-- Google Font for Italianno -->
     <link href="https://fonts.googleapis.com/css2?family=Italianno&display=swap" rel="stylesheet">
-  
+  <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
+
 
     
     

@@ -1,11 +1,57 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+  <%@ page import="jakarta.servlet.http.HttpSession"%>
+<%@ page import="jakarta.servlet.http.HttpServletRequest"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+<%
+    HttpSession userSession = request.getSession(false);
+    String currentUser = (String) (userSession != null ? userSession.getAttribute("username") : null);
+    pageContext.setAttribute("currentUser", currentUser);
+%>
+<!-- Set contextPath variable -->
+<c:set var="contextPath" value="${pageContext.request.contextPath}" />
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>header</title>
     <link href="https://fonts.googleapis.com/css2?family=Italianno&display=swap" rel="stylesheet">
+
+       
+
+</head>
+<body>
+ <header class="beauty-header">
+    <nav class="navbar">
+      <ul class="nav-links">
+        <li><a href="${pageContext.request.contextPath}/home">Home</a></li>
+        <li><a href="${pageContext.request.contextPath}/servicescontroller">Services</a></li>
+        <li><a href="${pageContext.request.contextPath}/bookappointment">Booking</a></li>
+        <li><a href="${pageContext.request.contextPath}/contactus">Contact Us</a></li>
+        <li><a href="${pageContext.request.contextPath}/aboutus">About Us</a></li>
+
+      </ul>
+    </nav>
+      <div class="auth-buttons">
+ <c:choose>
+  <c:when test="${not empty sessionScope.username}">
+    <!-- Show Profile and Logout -->
+    <button onclick="location.href='${contextPath}/userprofile'">Profile</button>
+    <button onclick="location.href='${contextPath}/logout'">Logout</button>
+  </c:when>
+  <c:otherwise>
+    <!-- Show Login and Signup -->
+    <button onclick="location.href='${contextPath}/login'">Login</button>
+    <button onclick="location.href='${contextPath}/register'">Sign Up</button>
+  </c:otherwise>
+</c:choose>
+  </div>
+    <h1 class="brand">The Beauty Lab</h1>
+    <p>Session User: ${currentUser}</p>
+  </header>
+
+</body>
 <style>
 
 body {
@@ -70,6 +116,22 @@ body {
   color: #7b4b2b;
   animation: slideDown 1.2s ease-out;
 }
+
+button {
+    margin-top: 30px;
+    background: #8b5e3c;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+button:hover {
+    background: #a67c52;
+}
+
 
 /* Animations */
 @keyframes fadeIn {
@@ -155,27 +217,4 @@ body {
 }
 
 </style>
-       
-
-</head>
-<body>
- <header class="beauty-header">
-    <nav class="navbar">
-      <ul class="nav-links">
-        <li><a href="${pageContext.request.contextPath}/home">Home</a></li>
-        <li><a href="${pageContext.request.contextPath}/servicescontroller">Services</a></li>
-        <li><a href="${pageContext.request.contextPath}/bookappointment">Booking</a></li>
-        <li><a href="${pageContext.request.contextPath}/contactus">Contact Us</a></li>
-        <li><a href="${pageContext.request.contextPath}/aboutus">About Us</a></li>
-
-      </ul>
-    </nav>
-      <div class="auth-buttons">
-    <button class="login-btn" onclick="location.href='${pageContext.request.contextPath}/login'">Login</button>
-    <button class="signup-btn" onclick="location.href='${pageContext.request.contextPath}/register'">Sign Up</button>
-  </div>
-    <h1 class="brand">The Beauty Lab</h1>
-  </header>
-
-</body>
 </html>

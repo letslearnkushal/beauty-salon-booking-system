@@ -82,7 +82,9 @@ public class LoginController extends HttpServlet {
                
                 CookieUtil.addCookie(response, "role_id", "user", 5 * 30);
                 System.out.println("Redirecting to user page for validated user");
-                response.sendRedirect(request.getContextPath() + "/userhome"); 
+                response.sendRedirect(request.getContextPath() + "/home"); 
+                HttpSession session = request.getSession();
+                session.setAttribute("username", username); // Set this after successful login
                 //request.getRequestDispatcher("/WEB-INF/pages/userhome.jsp").forward(request, response);
             } else {
                 // User not found or password incorrect
