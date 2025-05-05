@@ -1,35 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <%
-    String[] selectedServices = request.getParameterValues("services");
-    boolean showMakeupError = false;
-    boolean showHairError = false;
-    boolean showNailError = false;
-    boolean showCosmoError = false;
-    boolean showSpaError = false;
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-    if ("POST".equalsIgnoreCase(request.getMethod())) {
-        if (selectedServices != null) {
-            java.util.List<String> services = java.util.Arrays.asList(selectedServices);
-
-            if (services.stream().anyMatch(s -> s.toLowerCase().contains("make up")) && request.getParameter("stylist_makeup") == null) {
-                showMakeupError = true;
-            }
-            if (services.stream().anyMatch(s -> s.toLowerCase().contains("hair")) && request.getParameter("stylist_hair") == null) {
-                showHairError = true;
-            }
-            if (services.stream().anyMatch(s -> s.toLowerCase().contains("nail") || s.toLowerCase().contains("manicure") || s.toLowerCase().contains("pedicure")) && request.getParameter("stylist_nail") == null) {
-                showNailError = true;
-            }
-            if (services.stream().anyMatch(s -> s.toLowerCase().contains("botox") || s.toLowerCase().contains("chemical") || s.toLowerCase().contains("laser")) && request.getParameter("stylist_cosmo") == null) {
-                showCosmoError = true;
-            }
-            if (services.stream().anyMatch(s -> s.toLowerCase().contains("scrub") || s.toLowerCase().contains("relax") || s.toLowerCase().contains("slimming") || s.toLowerCase().contains("foot")) && request.getParameter("stylist_spa") == null) {
-                showSpaError = true;
-            }
-        }
-    }
-%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -42,24 +14,12 @@
 </head>
 <body>
 
-<header>
-    <div class="nav">
-        <div class="logo">The Beauty Lab</div>
-        <ul class="nav-links">
-            <li><a href="#">Home</a></li>
-            <li><a href="#">About Us</a></li>
-            <li><a href="#">Services</a></li>
-            <li><a href="#">My Appointments</a></li>
-            <li><a href="#">Contact Us</a></li>
-        </ul>
-    </div>
-</header>
-
+<jsp:include page="header.jsp"/>
 
 	<main>
 	<h1 class="site-title">Book Appointment</h1>
 
-	<form method="post">
+	<form method="post" action="${pageContext.request.contextPath}/bookappointment">
 
 	    <div class="grid-layout-custom">
 	
@@ -75,7 +35,10 @@
 	            
 	            <label><input type="radio" name="stylist_makeup" value="Samantha"> Samantha</label>
 	            <label><input type="radio" name="stylist_makeup" value="Olivia"> Olivia</label>
-	            <% if (showMakeupError) { %><p style="color:red;">Please select a makeup stylist.</p><% } %>
+	              <c:if test="${showMakeupError}">
+				    <p style="color:red;">Please select a makeup stylist.</p>
+				</c:if>
+	          
 	        </div>
 	
 	        <!-- Hair -->
@@ -90,7 +53,9 @@
 	            
 	            <label><input type="radio" name="stylist_hair" value="Emily"> Emily</label>
 	            <label><input type="radio" name="stylist_hair" value="Riya"> Riya</label>
-	            <% if (showHairError) { %><p style="color:red;">Please select a hair stylist.</p><% } %>
+	            <c:if test="${showHairError}">
+				    <p style="color:red;">Please select a makeup stylist.</p>
+				</c:if>
 	        </div>
 	
 	        <!-- Nails -->
@@ -105,7 +70,10 @@
 	           
 	            <label><input type="radio" name="stylist_nail" value="Jessie"> Jessie</label>
 	            <label><input type="radio" name="stylist_nail" value="Tina"> Tina</label>
-	            <% if (showNailError) { %><p style="color:red;">Please select a nail stylist.</p><% } %>
+	           <c:if test="${showNailError}">
+				    <p style="color:red;">Please select a makeup stylist.</p>
+				</c:if>
+	           
 	        </div>
 	
 	        <!-- Cosmetology -->
@@ -119,7 +87,10 @@
 	            
 	            <label><input type="radio" name="stylist_cosmo" value="Dr. Mira" > Dr. Mira</label>
 	            <label><input type="radio" name="stylist_cosmo" value="Dr. Laxmi"> Dr. Laxmi</label>
-	            <% if (showCosmoError) { %><p style="color:red;">Please select a cosmetologist.</p><% } %>
+	            <c:if test="${showCosmoError}">
+				    <p style="color:red;">Please select a makeup stylist.</p>
+				</c:if>
+	          
 	        </div>
 	
 	        <!-- Spa -->
@@ -133,7 +104,9 @@
 	      
 	            <label><input type="radio" name="stylist_spa" value="Mina" > Mina</label>
 	            <label><input type="radio" name="stylist_spa" value="Luna"> Luna</label>
-	            <% if (showSpaError) { %><p style="color:red;">Please select a spa stylist.</p><% } %>
+	            <c:if test="${showSpaError}">
+				    <p style="color:red;">Please select a makeup stylist.</p>
+				</c:if>
 	        </div>
 	    </div>
 	
@@ -151,9 +124,7 @@
 	
 	</main>
 	
-	<footer>
-	    <p>&copy; 2025 The Beauty Lab | Connect With Us</p>
-	</footer>
+<jsp:include page="footer.jsp"/>
 	
 	</body>
 	

@@ -43,6 +43,8 @@ header {
 /* Horizontal staggered box layout */
 .grid-layout-custom {
     display: flex;
+    justify-content: space-around;
+    padding: 58px 174px;
     gap: 20px;
     padding: 60px 40px;
     overflow-x: auto;

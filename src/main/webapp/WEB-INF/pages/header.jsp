@@ -27,7 +27,7 @@
       <ul class="nav-links">
         <li><a href="${pageContext.request.contextPath}/home">Home</a></li>
         <li><a href="${pageContext.request.contextPath}/servicescontroller">Services</a></li>
-        <li><a href="${pageContext.request.contextPath}/bookappointment">Booking</a></li>
+        <li><a href="${pageContext.request.contextPath}/bookappointment">Book Appointment</a></li>
         <li><a href="${pageContext.request.contextPath}/contactus">Contact Us</a></li>
         <li><a href="${pageContext.request.contextPath}/aboutus">About Us</a></li>
 
@@ -42,8 +42,8 @@
   </c:when>
   <c:otherwise>
     <!-- Show Login and Signup -->
-    <button onclick="location.href='${contextPath}/login'">Login</button>
-    <button onclick="location.href='${contextPath}/register'">Sign Up</button>
+    <button onclick="location.href='${contextPath}/login'" style="background-color: red; color: white;">Login</button>
+    <button onclick="location.href='${contextPath}/register'" style="background-color: red; color: white;" >Sign Up</button>
   </c:otherwise>
 </c:choose>
   </div>

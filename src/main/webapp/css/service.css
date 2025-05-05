@@ -30,8 +30,9 @@ body {
 
 .service-image img {
   width: 220px;
-  height: auto;
+  height: 200px;
   border-radius: 5px;
+      padding-top: 57px;
   object-fit: cover;
 }
 
