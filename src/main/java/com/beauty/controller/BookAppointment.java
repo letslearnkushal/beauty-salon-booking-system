@@ -97,7 +97,42 @@ public class BookAppointment extends HttpServlet {
 	        // Forward to booking page
 	        RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/pages/booking.jsp");
 	        rd.forward(request, response);
-	}
+	        
+//	        String[] services = request.getParameterValues("services");
+//	        String date = request.getParameter("date");
+//	        String time = request.getParameter("time");
+//
+//	        // Stylists
+//	        String stylistMakeup = request.getParameter("stylist_makeup");
+//	        String stylistHair = request.getParameter("stylist_hair");
+//	        String stylistNail = request.getParameter("stylist_nail");
+//	        String stylistCosmo = request.getParameter("stylist_cosmo");
+//	        String stylistSpa = request.getParameter("stylist_spa");
+//
+//	        // Combine selected services
+//	        String selectedServicesdb = String.join(", ", services != null ? services : new String[]{});
+//
+//	        // Get the selected stylist (first non-null)
+//	        String stylist = stylistMakeup != null ? stylistMakeup :
+//	                         stylistHair != null ? stylistHair :
+//	                         stylistNail != null ? stylistNail :
+//	                         stylistCosmo != null ? stylistCosmo :
+//	                         stylistSpa;
+//
+//	        // Check if already booked
+//	        AppointmentDAO dao = new AppointmentDAO();
+//	        boolean isAlreadyBooked = dao.isAppointmentBooked(date, time);
+//
+//	        if (isAlreadyBooked) {
+//	            request.setAttribute("error", "An appointment already exists on " + date + " at " + time);
+//	            request.getRequestDispatcher("/WEB-INF/pages/appointment.jsp").forward(request, response);
+//	        } else {
+//	            Appointment appointment = new Appointment(selectedServicesdb, stylist, date, time);
+//	            dao.saveAppointment(appointment);
+//	            response.sendRedirect("success.jsp");
+//	        }
+	    }
+	
 
 	// Helper method
 	private boolean containsAny(List<String> services, List<String> keywords) {
@@ -111,6 +146,10 @@ public class BookAppointment extends HttpServlet {
 	    }
 	    return false;
 	}
+	
+	
+	
+	
 	}
 
 

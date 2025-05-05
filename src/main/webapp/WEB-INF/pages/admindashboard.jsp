@@ -23,9 +23,16 @@
             
             <ul class="nav-menu">
                 <li class="nav-item">
-                    <a href="#" class="nav-link active">
+                    <a  href="${pageContext.request.contextPath}/admindashboard" class="nav-link active">
                         <span class="nav-icon">&#x1F3E0;</span>
                         Dashboard
+                   </a>
+                </li>
+                <li>
+           
+                     <a href="${pageContext.request.contextPath}/adminuser" class="nav-link active">
+                        <span class="nav-icon">&#x1F3E0;</span>
+                        User List
                     </a>
                 </li>
             </ul>
@@ -168,18 +175,7 @@
     </div>
 
     <script>
-        document.querySelector('.menu-toggle').addEventListener('click', function() {
-            const sidebar = document.querySelector('.sidebar');
-            if (sidebar.style.width === '0px' || sidebar.style.width === '') {
-                sidebar.style.width = '240px';
-                sidebar.style.transform = 'translateX(0)';
-                document.querySelector('.main-content').style.marginLeft = '240px';
-            } else {
-                sidebar.style.width = '0px';
-                sidebar.style.transform = 'translateX(-100%)';
-                document.querySelector('.main-content').style.marginLeft = '0';
-            }
-        });
+
     </script>
 </body>
 </html>
