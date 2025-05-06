@@ -1,54 +1,59 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page import="com.beauty.model.Appointment" %>
+<%@ page import="com.beauty.service.AppointmentService" %>
+<%@ page import="java.util.List" %>
+
+<%
+    AppointmentService appointmentService = new AppointmentService();
+    List<Appointment> allAppointments = appointmentService.getAllAppointments();
+    request.setAttribute("appointments", allAppointments);
+%>
+
 <!DOCTYPE html>
-<html lang = "en">
+<html>
 <head>
-<meta charset="UTF-8">
-<title>My Appointment</title>
-<link rel="stylesheet" type="text/css"
-	href="${pageContext.request.contextPath}/css/My Appointment.css"/>
+    <meta charset="UTF-8">
+    <title>All Appointments</title>
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/My Appointment.css"/>
 </head>
 <body>
 <div class="appointment-container">
-    <h1>My Appointment</h1>
+    <h1>All Appointments</h1>
 
-    <div class="card">
-      <div class="row">
-        <div>
-          <strong>20th April</strong><br>
-          at Beauty Lab
-        </div>
-        <div><strong>Starting at 5:00 PM</strong></div>
-      </div>
+    <c:choose>
+        <c:when test="${not empty appointments}">
+            <c:forEach var="appointment" items="${appointments}">
+               <div class="card">
+    <div class="row">
+        <span><strong>Appointment ID:</strong></span>
+        <span>${appointment.appointmentId}</span>
     </div>
-
-    <div class="card">
-      <div class="row">
-        <div>Haircut/Spa</div>
-        <div>Rs.5000</div>
-      </div>
-      <div class="row">
-        <div>Nails</div>
-        <div>Rs.2000</div>
-      </div>
+    <div class="row">
+        <span><strong>Service:</strong></span>
+        <span>${appointment.serviceName}</span>
     </div>
-
-    <div class="card">
-      <div class="row">
-        <div><strong>Total</strong></div>
-        <div><strong>Rs.7000</strong></div>
-        </div>
-      <div class="row">
-        <div>Deposit due now</div>
-        <div>Rs.2000</div>
-      </div>
-      <div class="row">
-        <div>Payment due on arrival</div>
-        <div>Rs.5000</div>
-      </div>
+    <div class="row">
+        <span><strong>Date:</strong></span>
+        <span>${appointment.date}</span>
     </div>
-
-    <button class="btn-booking">Complete Booking</button>
-  </div>
+    <div class="row">
+        <span><strong>Time:</strong></span>
+        <span>${appointment.time}</span>
+    </div>
+    <div class="row">
+        <span><strong>Stylist:</strong></span>
+        <span>${appointment.stylist}</span>
+    </div>
+</div>
+                <br/>
+            </c:forEach>
+        </c:when>
+        <c:otherwise>
+            <p>No appointments found.</p>
+        </c:otherwise>
+    </c:choose>
+</div>
 </body>
 </html>
