@@ -30,13 +30,12 @@ public class LogoutController extends HttpServlet {
     
         protected void doGet(HttpServletRequest request, HttpServletResponse response)
                 throws ServletException, IOException {
-            HttpSession session = request.getSession(false); // fetch existing session
-            if (session != null) {
-                session.invalidate(); // this clears session
-            }
-            response.sendRedirect(request.getContextPath() + "/login"); // redirect to login
+        	HttpSession session = request.getSession(false);
+        	if (session != null) {
+        	    session.invalidate();
+        	}
+            // Redirect user to login page after logout
+            response.sendRedirect(request.getContextPath() + "/login");
         }
-    
-
 
 }
