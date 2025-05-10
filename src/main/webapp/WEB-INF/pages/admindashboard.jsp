@@ -35,6 +35,13 @@
                         User List
                     </a>
                 </li>
+                <li>
+           
+                     <a href="${pageContext.request.contextPath}/logout" class="nav-link active">
+                        <span class="nav-icon">&#x1F3E0;</span>
+                       Log Out
+                    </a>
+                </li>
             </ul>
         </div>
         
@@ -50,7 +57,7 @@
                         <span class="notification-badge">3</span>
                     </div>
                     <div class="user-avatar">
-                        J
+                        A
                     </div>
                     <button class="more-options">&#x22EE;</button>
                 </div>

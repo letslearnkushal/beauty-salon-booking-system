@@ -5,6 +5,8 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
+
 import java.io.IOException;
 
 import com.beauty.model.modeluser;
@@ -57,17 +59,28 @@ public class UserProfileController extends HttpServlet {
 	        String lastName = request.getParameter("lastName");
 	        String email = request.getParameter("email");
 	        String number = request.getParameter("number");
-	        
+	        HttpSession session = request.getSession();
+
 	        System.out.println("user_id = " + request.getParameter("user_id"));
 
 	        // Create StudentModel object with updated data
-	        modeluser user = new modeluser(userid, firstName, 
-	                lastName, email, number);
-
+	        //modeluser user = new modeluser(userid, firstName, 
+	               // lastName, email, number);
+	        modeluser user = (modeluser) session.getAttribute("user");
+	        session.setAttribute("user", user);
+	        
+	        if (user == null) {
+	            // For debugging
+	            System.out.println("User is null in servlet");
+	            response.sendRedirect("login.jsp"); // redirect if not logged in
+	            return;
+	        }
+	        
 	        // Attempt to update student information in the database
 	        Boolean result = updateService.updateUserInfo(user);
 	        System.out.printf("name", firstName);
 	        if (result != null && result) {
+	        	
 	        	response.sendRedirect(request.getContextPath() + "/WEB-INF/pages/userprofile"); // Redirect to dashboard on success
 	        } else {
 	            request.getSession().setAttribute("user", user);

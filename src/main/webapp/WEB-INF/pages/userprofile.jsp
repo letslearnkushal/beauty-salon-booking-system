@@ -1,5 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+    <c:set var="user" value="${user}" />
+    <%@ page session="true" %>
+    
+  
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,6 +15,7 @@
 
 </head>
 <body>
+
 <div class="profile-container">
   <!-- Sidebar -->
   <aside class="profile-sidebar">
@@ -21,7 +27,7 @@
       <a href="${pageContext.request.contextPath}/userprofile"><span>👤</span> Personal Info</a>
       <a href="${pageContext.request.contextPath}/userbookinghistory"><span>⏰</span> Booking History</a>
       <a href="${pageContext.request.contextPath}/usersettings"><span>⚙️</span> Settings</a>
-      <a href="${pageContext.request.contextPath}/login"><span>📕</span> Logout</a>
+      <a href="${pageContext.request.contextPath}/logout"><span>📕</span> Logout</a>
     </nav>
   </aside>
 
@@ -37,11 +43,11 @@
         </div>
       </div>
 
- <form action="${pageContext.request.contextPath}/userprofile" method="put">
+ <form action="${pageContext.request.contextPath}/userprofile" method="post">
   <div class="profile-info">
     <div class="info-row">
       <label>First Name</label>
-      <span><input type="text" class="form-control" name="firstName" value="${user.first_name}"></span>
+      <span><input type="text" class="form-control" name="firstName" value="${sessionScope.user.first_name}"></span>
     </div>
     <div class="info-row">
       <label>Last Name</label>

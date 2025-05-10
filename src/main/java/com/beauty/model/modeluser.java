@@ -28,6 +28,11 @@ public class modeluser {
 		this.username = username;
 		this.password = password;
 	}
+	public modeluser(String username, String password, String role_name) {
+		this.username = username;
+		this.password = password;
+		this.role_name = role_name;
+	}
 //	public modeluser(String first_name, String last_name, String username, LocalDate dob,
 //            String gender, String email, String phone, String password, String imageUrl, int role_id) {
 //	this.first_name = first_name;

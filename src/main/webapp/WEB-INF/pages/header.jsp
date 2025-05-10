@@ -25,7 +25,7 @@
  <header class="beauty-header">
     <nav class="navbar">
       <ul class="nav-links">
-        <li><a href="${pageContext.request.contextPath}/home">Home</a></li>
+        <li><a href="${pageContext.request.contextPath}/">Home</a></li>
         <li><a href="${pageContext.request.contextPath}/servicescontroller">Services</a></li>
         <li><a href="${pageContext.request.contextPath}/bookappointment">Book Appointment</a></li>
         <li><a href="${pageContext.request.contextPath}/contactus">Contact Us</a></li>

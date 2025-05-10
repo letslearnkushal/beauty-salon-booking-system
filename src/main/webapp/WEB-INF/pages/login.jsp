@@ -14,7 +14,9 @@
 </head>
 <body>
  <jsp:include page="header.jsp"/>
+ 
     <div class="container">
+   
         <div class="login-box">
             <div class="left-panel">
                 <h2 class="logo">The Beauty Lab</h2>

@@ -151,7 +151,7 @@
       <a href="${pageContext.request.contextPath}/userprofile"><span>👤</span> Personal Info</a>
       <a href="${pageContext.request.contextPath}/userbookinghistory"><span>⏰</span> Booking History</a>
       <a href="${pageContext.request.contextPath}/usersettings"><span>⚙️</span> Settings</a>
-      <a href="${pageContext.request.contextPath}/login"><span>📕</span> Logout</a>
+      <a href="${pageContext.request.contextPath}/logout"><span>📕</span> Logout</a>
     </nav>
   </aside>
 
