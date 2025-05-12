@@ -2,53 +2,98 @@
     pageEncoding="UTF-8"%>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
     <%@ taglib prefix = "sql" uri = "http://java.sun.com/jsp/jstl/sql" %>
-    
+ 
 <!DOCTYPE html>
-<html lang ="en">
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Services and Prices</title>
-<link rel="stylesheet" type="text/css"
-	href="${pageContext.request.contextPath}/css/service.css" />
-	        <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/header.css">
-          <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/footer.css">
+    <meta charset="UTF-8">
+    <title>Services and Prices</title>
+    <link rel="stylesheet" type="text/css"
+          href="${pageContext.request.contextPath}/css/service.css" />
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/header.css">
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/footer.css">
+    <style>
+        .services-container {
+            padding: 20px;
+        }
+        .service-category {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 40px;
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 20px;
+        }
+        .service-list {
+            flex: 1;
+        }
+        .service-list h2 {
+            margin-bottom: 10px;
+            font-size: 24px;
+        }
+        .service-list ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .service-list li {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+            font-size: 16px;
+        }
+        .service-image {
+            margin-left: 30px;
+        }
+        .service-image img {
+            max-width: 250px;
+            height: auto;
+            border-radius: 10px;
+        }
+    </style>
 </head>
 <body>
 <jsp:include page="header.jsp"/>
+
 <div class="services-container">
-    <h1 class="title">Services and prices</h1>
-<c:forEach var="service" items="${services}" varStatus="loop">
-    <c:if test="${service.category ne lastCategory}">
-        <c:if test="${not empty lastCategory}">
-                </ul>
-            </div>
-            <div class="service-image">
-                <img src="${pageContext.request.contextPath}/resources/images/${lastImage}" alt="${lastCategory}">
-            </div>
-        </div>
+    <h1 class="title">Services and Prices</h1>
+
+    <c:set var="lastCategory" value="" />
+    <c:forEach var="service" items="${services}" varStatus="loop">
+        <c:if test="${service.category ne lastCategory}">
+            <c:if test="${not empty lastCategory}">
+                        </ul>
+                    </div>
+                    <div class="service-image">
+                        <img src="${pageContext.request.contextPath}/resources/images/${lastImage}" alt="${lastCategory}">
+                    </div>
+                </div>
+            </c:if>
+            <div class="service-category">
+                <div class="service-list">
+                    <h2>${service.category}</h2>
+                    <ul>
+            <c:set var="lastCategory" value="${service.category}" />
+            <c:set var="lastImage" value="${service.imagePath}" />
         </c:if>
 
-        <div class="service-row">
-            <div class="service-box">
-                <h2>${service.category}</h2>
-                <ul>
-        <c:set var="lastCategory" value="${service.category}" />
-        <c:set var="lastImage" value="${service.imagePath}" />
-    </c:if>
+        <li>
+            <span>${service.title}</span>
+            <span>RS${service.price}</span>
+        </li>
 
-    <li>${service.name}<span>${service.price}</span></li>
+        <c:if test="${loop.last}">
+                    </ul>
+                </div>
+                <div class="service-image">
+                    <img src="${pageContext.request.contextPath}/resources/images/${service.imagePath}" alt="${service.category}">
+                </div>
+            </div>
+        </c:if>
+    </c:forEach>
+</div>
 
-    <!-- Now we use loop.last to detect last iteration -->
-    <c:if test="${loop.last}">
-            </ul>
-        </div>
-        <div class="service-image">
-            <img src="${pageContext.request.contextPath}/resources/images/${service.imagePath}" alt="${service.category}">
-        </div>
-    </div>
-    </c:if>
-</c:forEach>
-
+<jsp:include page="footer.jsp"/>
+</body>
+</html>
 <!-- This is the main header of the page 
     <div class="service-row">
      
@@ -134,6 +179,3 @@
     </div>
   </div>
   -->
-  <jsp:include page="footer.jsp"/>
-</body>
-</html>

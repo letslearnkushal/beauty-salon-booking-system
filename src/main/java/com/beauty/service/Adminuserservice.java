@@ -14,7 +14,10 @@ import com.beauty.config.bdconfig;
 import com.beauty.model.modeluser;
 
 public class Adminuserservice {
-	
+	private DeleteUser deleteuser;
+	public Adminuserservice() {
+		deleteuser = new DeleteUser ();
+		}
 	 
     public List<modeluser> getAllUsers() {
         List<modeluser> userList = new ArrayList<>();
@@ -44,4 +47,19 @@ public class Adminuserservice {
 
         return userList;
     }
+    
+//    public void deleteUser(int userId) {
+//        try (Connection conn = bdconfig.getConnection();
+//             PreparedStatement stmt = conn.prepareStatement("DELETE FROM user WHERE user_id = ?")) {
+//            stmt.setInt(1, userId);
+//            int rowsAffected = stmt.executeUpdate();
+//            System.out.println("Rows deleted: " + rowsAffected); // for debugging
+//        } catch (SQLException e) {
+//            e.printStackTrace();
+//        }
+//    }
+    public boolean deleteUserById(int userId) {
+        return deleteuser.deleteUser(userId);
+    }
+
 }

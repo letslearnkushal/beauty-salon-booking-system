@@ -31,10 +31,10 @@ import com.beauty.util.SessionUtil;
 	    private static final String MODIFY_USER = "/userprofile";
 	    private static final String USER_UPDATE = "/usersettings";
 	    private static final String ABOUT = "/aboutus";
-	    private static final String BOOKINGHISTORY = "/bookinghistorycontroller";
+	    private static final String BOOKINGHISTORY = "/userbookinghistory";
 	    private static final String CONTACT = "/contactus";
 	    private static final String LOGOUT = "/logout";
-
+	    private static final String Apoinments = "/myappointmentController";
 	    @Override
 	    public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
 	            throws IOException, ServletException {
@@ -45,7 +45,7 @@ import com.beauty.util.SessionUtil;
 	        String uri = req.getRequestURI();
 
 	        // Allow static resources
-	        if (uri.endsWith(".css") || uri.endsWith(".js") || uri.endsWith(".png") || uri.endsWith(".jpg") || uri.endsWith(".jpg") || uri.contains("/assets/")) {
+	        if (uri.endsWith(".css") || uri.endsWith(".js") || uri.endsWith(".png") || uri.endsWith(".jpg") || uri.endsWith(".jpeg") || uri.endsWith(".jpg") || uri.contains("/assets/")) {
 	            chain.doFilter(request, response);
 	            return;
 	        }
@@ -59,7 +59,7 @@ import com.beauty.util.SessionUtil;
 //	            if (uri.endsWith(LOGIN) || uri.endsWith(REGISTER)) {
 //	                res.sendRedirect(req.getContextPath() + DASHBOARD);
 //	        }
-	        	if (uri.endsWith(DASHBOARD) || uri.endsWith(ADMINUSER) || uri.endsWith(LOGOUT)
+	        	if (uri.endsWith(DASHBOARD) || uri.endsWith(ADMINUSER) || uri.endsWith(LOGOUT) || uri.endsWith(Apoinments)
 	                    || uri.endsWith(ROOT)) {
 	                chain.doFilter(request, response);
 	            } else {

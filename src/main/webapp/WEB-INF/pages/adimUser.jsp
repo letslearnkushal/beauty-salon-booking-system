@@ -67,19 +67,31 @@
                                 <th>Actions</th>
                             </tr>
                         </thead>
-                        <tbody>
-                            <c:forEach var="user" items="${userList}">
-                                <tr>
-                                    <td>${user.user_id}</td>
-                                    <td>${user.username}</td>
-                                    <td>${user.first_name}</td>
-                                    <td>${user.last_name}</td>
-                                    <td>${user.email}</td>
-                                    <td><button class="delete-btn">Delete</button></td>
-                                </tr>
-                            </c:forEach>
-                        </tbody>
+<tbody>
+    <c:forEach var="user" items="${userList}">
+        <tr>
+            <td>${user.user_id}</td>
+            <td>${user.username}</td>
+            <td>${user.first_name}</td>
+            <td>${user.last_name}</td>
+            <td>${user.email}</td>
+            <td>
+<form method="post" action="${pageContext.request.contextPath}/adminuser" style="display:inline;">
+    <input type="hidden" name="user_id" value="${user.user_id}" />
+    <input type="hidden" name="action" value="delete" />
+    <button class="delete-btn" type="submit" onclick="return confirm('Are you sure you want to delete this user?');">Delete</button>
+</form>
+            </td>
+        </tr>
+    </c:forEach>
+</tbody>
                     </table>
+                    <c:if test="${not empty successMessage}">
+    <div style="color: green; margin-bottom: 15px;">${successMessage}</div>
+</c:if>
+<c:if test="${not empty errorMessage}">
+    <div style="color: red; margin-bottom: 15px;">${errorMessage}</div>
+</c:if>
                 </div>
             </div>
         </div>

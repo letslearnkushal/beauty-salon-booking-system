@@ -89,35 +89,35 @@
         <h2>Our Team</h2>
         <div class="team-grid">
             <div class="team-card">
-                <img src="bikram.jpg" alt="Bikram">
+                <img src="${pageContext.request.contextPath}/resources/images/bikram.jpg" alt="Bikram">
                 <h4>Bikram Shrestha</h4>
                 <p>Vice-chair person</p>
                 <a href="#"><i class="fab fa-facebook-f"></i></a>
                 <a href="#"><i class="fab fa-instagram"></i></a>
             </div>
             <div class="team-card">
-                <img src="kushal.jpeg" alt="Kushal">
+                <img src="${pageContext.request.contextPath}/resources/images/kushal.jpeg" alt="Kushal">
                 <h4>Kushal Shrestha</h4>
                 <p>CEO</p>
                 <a href="#"><i class="fab fa-facebook-f"></i></a>
                 <a href="#"><i class="fab fa-instagram"></i></a>
             </div>
             <div class="team-card">
-                <img src="khushi.jpeg" alt="Khushi">
+                <img src="${pageContext.request.contextPath}/resources/images/khushi.jpeg" alt="Khushi">
                 <h4>Khushi Karanjit</h4>
                 <p>Founder</p>
                 <a href="#"><i class="fab fa-facebook-f"></i></a>
                 <a href="#"><i class="fab fa-instagram"></i></a>
             </div>
             <div class="team-card">
-                <img src="yuri.jpeg" alt="Yuri">
+                <img src="${pageContext.request.contextPath}/resources/images/yuri.jpeg" alt="Yuri">
                 <h4>Yuri Dangol</h4>
                 <p>Co-founder</p>
                 <a href="#"><i class="fab fa-facebook-f"></i></a>
                 <a href="#"><i class="fab fa-instagram"></i></a>
             </div>
             <div class="team-card">
-                <img src="sophie.jpeg" alt="Sophie">
+                <img src="${pageContext.request.contextPath}/resources/images/sophie.jpeg" alt="Sophie">
                 <h4>Sophie Thapa</h4>
                 <p>Chair person</p>
                 <a href="#"><i class="fab fa-facebook-f"></i></a>

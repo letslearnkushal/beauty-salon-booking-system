@@ -36,6 +36,15 @@ public class AdminUserController extends HttpServlet {
 		   try {
 	            List<modeluser> userList = adminuserservice.getAllUsers();
 	            request.setAttribute("userList", userList);
+	            String successMessage = (String) request.getSession().getAttribute("successMessage");
+	            String errorMessage = (String) request.getSession().getAttribute("errorMessage");
+
+	            request.setAttribute("successMessage", successMessage);
+	            request.setAttribute("errorMessage", errorMessage);
+
+	            request.getSession().removeAttribute("successMessage");
+	            request.getSession().removeAttribute("errorMessage");
+	            
 	            request.getRequestDispatcher("/WEB-INF/pages/adimUser.jsp").forward(request, response);
 	        } catch (Exception e) {
 	            e.printStackTrace();
@@ -47,8 +56,24 @@ public class AdminUserController extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		
-	}
+		  String action = request.getParameter("action");
 
+	        if ("delete".equals(action)) {
+	            try {
+	                int userId = Integer.parseInt(request.getParameter("user_id"));
+	                boolean deleted = adminuserservice.deleteUserById(userId);
+	                System.out.println("ENtered");
+	                if (deleted) {
+	                    request.getSession().setAttribute("successMessage", "User deleted successfully.");
+	                } else {
+	                    request.getSession().setAttribute("errorMessage", "Failed to delete user.");
+	                }
+	            } catch (Exception e) {
+	                e.printStackTrace();
+	                request.getSession().setAttribute("errorMessage", "Error deleting user.");
+	            }
+
+	            response.sendRedirect(request.getContextPath() + "/adminuser");
+	        }
+	    }
 }
