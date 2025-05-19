@@ -70,8 +70,32 @@ public class OurServiceService {
               
               return Displayservices;
     }
+    
+    
+    public List<Modelservice> searchServicesByName(String keyword) {
+        List<Modelservice> results = new ArrayList<>();
 
-    
-    
+        try (Connection conn = bdconfig.getDbConnection()) {
+            String sql = "SELECT * FROM service WHERE LOWER(service_title) LIKE ?";
+            try (PreparedStatement ps = conn.prepareStatement(sql)) {
+                ps.setString(1, "%" + keyword.toLowerCase() + "%");
+
+                ResultSet rs = ps.executeQuery();
+                while (rs.next()) {
+                    Modelservice s = new Modelservice();
+                    s.setServiceId(rs.getInt("service_id"));
+                    s.setTitle(rs.getString("service_title"));      
+                    s.setCategory(rs.getString("category"));         
+                    s.setDuration(rs.getInt("duration"));
+                    s.setPrice(rs.getDouble("price"));  
+                    s.setImagePath(rs.getString("image_path"));
+                    results.add(s);
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return results;
+    }
 }
-

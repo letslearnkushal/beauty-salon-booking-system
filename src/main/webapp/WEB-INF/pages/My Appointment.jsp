@@ -4,7 +4,8 @@
 <%@ page import="com.beauty.model.Appointment" %>
 <%@ page import="com.beauty.service.AppointmentService" %>
 <%@ page import="java.util.List" %>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%
     AppointmentService appointmentService = new AppointmentService();
     List<Appointment> allAppointments = appointmentService.getAllAppointments();
@@ -24,31 +25,21 @@
 
     <c:choose>
         <c:when test="${not empty appointments}">
-            <c:forEach var="appointment" items="${appointments}">
-               <div class="card">
-    <div class="row">
-        <span><strong>Appointment ID:</strong></span>
-        <span>${appointment.appointmentId}</span>
-    </div>
-    <div class="row">
-        <span><strong>Service:</strong></span>
-        <span>${appointment.serviceName}</span>
-    </div>
-    <div class="row">
-        <span><strong>Date:</strong></span>
-        <span>${appointment.date}</span>
-    </div>
-    <div class="row">
-        <span><strong>Time:</strong></span>
-        <span>${appointment.time}</span>
-    </div>
-    <div class="row">
-        <span><strong>Stylist:</strong></span>
-        <span>${appointment.stylist}</span>
-    </div>
-</div>
-                <br/>
+   
+<c:forEach var="appointment" items="${appointments}">
+    <div class="card">
+        <p><strong>ID:</strong> ${appointment.appointmentId}</p>
+        <p><strong>Date:</strong> ${appointment.date}</p>
+        <p><strong>Time:</strong> ${appointment.time}</p>
+        <p><strong>Stylist:</strong> ${appointment.stylist}</p>
+        <p><strong>Services:</strong></p>
+        <ul>
+            <c:forEach var="i" begin="0" end="${fn:length(appointment.serviceNames) - 1}">
+                <li>${appointment.serviceNames[i]} – ${appointment.durations[i]} hours</li>
             </c:forEach>
+        </ul>
+    </div>
+</c:forEach>
         </c:when>
         <c:otherwise>
             <p>No appointments found.</p>

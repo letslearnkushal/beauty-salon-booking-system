@@ -11,6 +11,9 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import com.beauty.model.Modelservice;
+import com.beauty.service.OurServiceService;
+
 /**
  * Servlet implementation class SearchController
  */
@@ -30,20 +33,13 @@ public class SearchController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		 String query = request.getParameter("query");
-
-	        // For demonstration, assume we're searching static items
-	        List<String> services = Arrays.asList("Hair Cut", "Facial", "Manicure", "Pedicure", "Makeup");
-	        List<String> filtered = new ArrayList<>();
-	        if (query != null && !query.trim().isEmpty()) {
-	            for (String s : services) {
-	                if (s.toLowerCase().contains(query.toLowerCase())) {
-	                    filtered.add(s);
-	                }
-	            }
+		 String keyword = request.getParameter("query");
+		 if (keyword != null && !keyword.trim().isEmpty()) {
+			 OurServiceService service = new OurServiceService();
+			 List<Modelservice> results = service.searchServicesByName(keyword);
+			 request.setAttribute("searchQuery", keyword);
+	            request.setAttribute("results", results);
 	        }
-
-	        request.setAttribute("results", filtered);
 	        request.getRequestDispatcher("/WEB-INF/pages/searchresults.jsp").forward(request, response);
 	    }
 	

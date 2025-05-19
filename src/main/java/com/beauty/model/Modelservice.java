@@ -8,6 +8,10 @@ public class Modelservice {
 	    private int duration;
 	    private String category;
 	    private String imagePath;
+	    private String serviceName;
+
+	 
+	    
 	public Modelservice() {
 		// TODO Auto-generated constructor stub
 	}
@@ -26,7 +30,7 @@ public int getServiceId() {
    return service_id;
 }
 
-public void setServiceId(int id) {
+public void setServiceId(int service_id) {
    this.service_id = service_id;
 }
 
@@ -82,7 +86,13 @@ public void setImagePath(String imagePath) {
 public String getFormattedPrice() {
    return String.format("₱%.2f", price);
 }
+public String getServiceName() {
+    return serviceName;
+}
 
+public void setServiceName(String serviceName) {
+    this.serviceName = serviceName;
+}
 @Override
 public String toString() {
    return "Service [id=" + service_id + ", title=" + title + ", price=" + price + "]";

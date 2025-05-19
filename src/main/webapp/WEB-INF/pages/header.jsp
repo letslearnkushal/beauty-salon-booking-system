@@ -36,8 +36,8 @@ body {
     background-color: #f7e6d7;
     animation: fadeIn 1.5s ease-in;
     padding-bottom: 20px;
+    margin-bottom: 30px; /* Add this line */
 }
-
 /* Navbar Layout */
 .navbar {
     display: flex;
@@ -147,6 +147,7 @@ padding-top: 40px;
     }
     .header{
            max-height: max-content;
+            margin-bottom: 40px;
     }
 
     .navbar {
@@ -154,6 +155,7 @@ padding-top: 40px;
         align-items: center;
         padding: 10px;
             max-height: max-content;
+            
     }
 
     .nav-links {
@@ -187,6 +189,9 @@ padding-top: 40px;
         padding-top: 10px;
         margin: 10px 0;
         text-align: center;
+    }
+      .hero {
+        margin-top: 20px;
     }
 }
 
