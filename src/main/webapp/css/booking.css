@@ -49,6 +49,7 @@ header {
     padding: 60px 40px;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
+    margin-left: 20px;
 }
 
 .box {
@@ -67,11 +68,13 @@ header {
 .box:nth-child(odd) {
     background: #F6F6F6; 
     transform: translateY(-30px);
+    width: 240px;
 }
 
 .box:nth-child(even) {
     background: #EFDBC5; 
     transform: translateY(30px);
+    width: 240px;
 }
 
 /* Box hover glow */

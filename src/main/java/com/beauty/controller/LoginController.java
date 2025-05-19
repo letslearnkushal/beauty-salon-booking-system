@@ -60,13 +60,13 @@ public class LoginController extends HttpServlet {
         System.out.println("Role: " + user.getRole_name());
 
         HttpSession session = request.getSession(true);
-       
+        session.setAttribute("userId", user.getUser_id()); 
         SessionUtil.setAttribute(request, "user_id", user.getUser_id());
         SessionUtil.setAttribute(request, "username", user.getUsername());
         SessionUtil.setAttribute(request, "role_name", user.getRole_name());
         //SessionUtil.setAttribute(request, "user", user);
 
-        CookieUtil.addCookie(response, "role_id", user.getRole_name(), 5 * 30);
+        CookieUtil.addCookie(response, "role_id", user.getRole_name(), 10 * 60);
 
         if ("admin".equalsIgnoreCase(user.getRole_name())) {
             response.sendRedirect(request.getContextPath() + "/adminDashboard");

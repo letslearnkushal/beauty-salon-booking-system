@@ -9,6 +9,7 @@
 
 <title>Book Appointment - The Beauty Lab</title>
     <link rel="stylesheet" type="text/css" href="<%= request.getContextPath() %>/css/booking.css"/>
+      <link rel="stylesheet" type="text/css" href="<%= request.getContextPath() %>/css/header.css"/>
     <link href="https://fonts.googleapis.com/css2?family=Italianno&display=swap" rel="stylesheet">
     
 </head>
@@ -26,11 +27,21 @@
 	        <!-- Makeup -->
 	        <div class="box makeup">
 	            <h3>Makeup</h3>
-	            <label><input type="checkbox" name="services" value="Daily make up"> Daily make up</label>
-	            <label><input type="checkbox" name="services" value="Night make up"> Night make up</label>
-	            <label><input type="checkbox" name="services" value="Bridal make up"> Bridal make up</label>
-	            <label><input type="checkbox" name="services" value="Occasion make up"> Occasion make up</label>
-	            <label><input type="checkbox" name="services" value="Television make up"> Television make up</label>
+			<label><input type="checkbox" name="services" value="Daily make up:2000"> Daily make up  - <strong style="color: Brown;"> &emsp; &emsp; Rs 2000</strong></label>
+		
+			
+			<label><input type="checkbox" name="services" value="Night make up:4000"> Night make up - <strong style="color: Brown;">&emsp; &emsp;Rs 4000</strong></label>
+
+			
+			<label><input type="checkbox" name="services" value="Bridal make up:4000"> Bridal make up  - <strong style="color: Brown;">&emsp;&emsp;Rs 4000</strong></label>
+
+			
+			<label><input type="checkbox" name="services" value="Occasion make up:5000"> Occasion make up - <strong style="color: Brown;">&emsp;Rs 5000</strong></label>
+
+			
+			<label><input type="checkbox" name="services" value="Television make up:6000"> Television make up - <strong style="color: Brown;">&emsp;Rs 6000</strong></label>
+			
+
 	            <h4>Stylist</h4>
 	            
 	            <label><input type="radio" name="stylist_makeup" value="Samantha"> Samantha</label>
@@ -44,11 +55,20 @@
 	        <!-- Hair -->
 	        <div class="box hair">
 	            <h3>Hair</h3>
-	            <label><input type="checkbox" name="services" value="Simple Haircut"> Simple Haircut</label>
-	            <label><input type="checkbox" name="services" value="Hair Styling"> Hair Styling</label>
-	            <label><input type="checkbox" name="services" value="Full Hair Color"> Full Hair Color</label>
-	            <label><input type="checkbox" name="services" value="Protein Treatment"> Protein Treatment</label>
-	            <label><input type="checkbox" name="services" value="Hair Mask"> Hair Mask</label>
+	             <label><input type="checkbox" name="services" value="Simple Haircut:300"> Simple Haircut - <strong style="color: Brown;">&emsp; Rs 300</strong></label>
+
+			 
+			    <label><input type="checkbox" name="services" value="Hair Styling:1000"> Hair Styling - <strong style="color: Brown;">&emsp; &emsp;Rs 1000</strong></label>
+
+			
+			    <label><input type="checkbox" name="services" value="Full Hair Color:2000"> Full Hair Color - <strong style="color: Brown;"> &emsp; Rs 2000</strong></label>
+
+			
+			    <label><input type="checkbox" name="services" value="Protein Treatment:3000"> Protein Treatment - <strong style="color: Brown;">Rs 3000</strong></label>
+	
+			
+			    <label><input type="checkbox" name="services" value="Hair Mask:1800"> Hair Mask- <strong style="color: Brown;"> &emsp; &emsp; &emsp;Rs 1800</strong></label>
+		
 	            <h4>Stylist</h4>
 	            
 	            <label><input type="radio" name="stylist_hair" value="Emily"> Emily</label>
@@ -61,11 +81,19 @@
 	        <!-- Nails -->
 	        <div class="box nails">
 	            <h3>Nails</h3>
-	            <label><input type="checkbox" name="services" value="Manicure"> Manicure</label>
-	            <label><input type="checkbox" name="services" value="Pedicure"> Pedicure</label>
-	            <label><input type="checkbox" name="services" value="French Manicure"> French Manicure</label>
-	            <label><input type="checkbox" name="services" value="Gel nails"> Gel nails</label>
-	            <label><input type="checkbox" name="services" value="Gel Reapplication"> Gel Reapplication</label>
+	            <label><input type="checkbox" name="services" value="Manicure:4000"> Manicure - <strong style="color: Brown;"> &emsp; &emsp;  Rs 4000</strong></label>
+			
+			    <label><input type="checkbox" name="services" value="Pedicure:2500"> Pedicure - <strong style="color: Brown;">&emsp; &emsp; Rs 2500</strong></label>
+
+			
+			    <label><input type="checkbox" name="services" value="French Manicure:1200"> French Manicure - <strong style="color: Brown;">Rs 1200</strong></label>
+
+			
+			    <label><input type="checkbox" name="services" value="Gel nails:5000"> Gel nails - <strong style="color: Brown;"> &emsp; &emsp; &emsp;Rs 5000</strong></label>
+
+			
+			    <label><input type="checkbox" name="services" value="Gel Reapplication:1000"> Gel Reapplication - <strong style="color: Brown;">Rs 1000</strong></label>
+
 	            <h4>Stylist</h4>
 	           
 	            <label><input type="radio" name="stylist_nail" value="Jessie"> Jessie</label>
@@ -79,10 +107,18 @@
 	        <!-- Cosmetology -->
 	        <div class="box cosmetology">
 	            <h3>Cosmetology</h3>
-	            <label><input type="checkbox" name="services" value="Botox"> Botox</label>
-	            <label><input type="checkbox" name="services" value="Chemical Peel"> Chemical Peel</label>
-	            <label><input type="checkbox" name="services" value="Laser Skin Resurfacing"> Laser Skin Resurfacing</label>
-	            <label><input type="checkbox" name="services" value="Laser Hair Removal"> Laser Hair Removal</label>
+	              <label><input type="checkbox" name="services" value="Botox:2000"> Botox - <strong style="color: Brown;">&emsp; &emsp; &emsp; &emsp;Rs 2000</strong></label>
+
+			
+			    <label><input type="checkbox" name="services" value="Chemical Peel:5000"> Chemical Peel - <strong style="color: Brown;">&emsp;Rs5000</strong></label>
+
+			
+			    <label><input type="checkbox" name="services" value="Laser Skin Resurfacing:8000"> Laser Skin Resurfacing - <strong style="color: Brown;">Rs 8000</strong></label>
+
+			
+			    <label><input type="checkbox" name="services" value="Laser Hair Removal:10000"> Laser Hair Removal - <strong style="color: Brown;"> &emsp;Rs 10000</strong></label>
+	
+
 	            <h4>Stylist</h4>
 	            
 	            <label><input type="radio" name="stylist_cosmo" value="Dr. Mira" > Dr. Mira</label>
@@ -96,10 +132,17 @@
 	        <!-- Spa -->
 	        <div class="box spa">
 	            <h3>Spa</h3>
-	            <label><input type="checkbox" name="services" value="Body scrub & smoothing"> Body scrub & smoothing</label>
-	            <label><input type="checkbox" name="services" value="Indulge & relax"> Indulge & relax</label>
-	            <label><input type="checkbox" name="services" value="Slimming & drainage"> Slimming & drainage</label>
-	            <label><input type="checkbox" name="services" value="Foot revive treatment"> Foot revive treatment</label>
+	             <label><input type="checkbox" name="services" value="Body scrub & smoothing:2000"> Body scrub & smoothing-<strong style="color: Brown;">Rs 2000</strong></label>
+			    
+			
+			    <label><input type="checkbox" name="services" value="Indulge & relax:2000"> Indulge & relax - <strong style="color: Brown;">&emsp; &emsp; Rs 2000</strong></label>
+		
+				<label><input type="checkbox" name="services" value="Slimming & drainage:3000"> Slimming & drainage - <strong style="color: Brown;">&emsp;Rs 3000</strong></label>
+
+			
+			    <label><input type="checkbox" name="services" value="Foot revive treatment:1800"> Foot revive treatment - <strong style="color: Brown;">&emsp;Rs 1800</strong></label>
+
+
 	            <h4>Stylist</h4>
 	      
 	            <label><input type="radio" name="stylist_spa" value="Mina" > Mina</label>

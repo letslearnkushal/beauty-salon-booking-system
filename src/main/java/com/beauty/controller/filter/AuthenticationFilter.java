@@ -35,6 +35,7 @@ import com.beauty.util.SessionUtil;
 	    private static final String CONTACT = "/contactus";
 	    private static final String LOGOUT = "/logout";
 	    private static final String Apoinments = "/myappointmentController";
+	    private static final String Search = "/search";
 	    @Override
 	    public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
 	            throws IOException, ServletException {
@@ -71,15 +72,15 @@ import com.beauty.util.SessionUtil;
 //	            } 
 	        	if (uri.endsWith(HOME) || uri.endsWith(ROOT) || uri.endsWith(ABOUT) || uri.endsWith(SERVICES) || uri.endsWith(BOOKAPPOINTMENT)
 	            		|| uri.endsWith(MYAPPOINTMENT) || uri.endsWith(MODIFY_USER) || uri.endsWith(BOOKINGHISTORY) || uri.endsWith(LOGOUT)
-	            		|| uri.endsWith(USER_UPDATE)
-	                    || uri.endsWith(CONTACT) || uri.endsWith(LOGIN))  {
+	            		|| uri.endsWith(USER_UPDATE) || uri.endsWith(Search)
+	                    || uri.endsWith(CONTACT) || uri.endsWith(LOGIN) || uri.endsWith(REGISTER))  {
 	                chain.doFilter(request, response);
 	            } else {
 	                res.sendRedirect(req.getContextPath() + HOME);
 	            }
 	        } else {
 	            // Not logged in
-	            if (uri.endsWith(LOGIN) || uri.endsWith(LOGOUT) || uri.endsWith(REGISTER) || uri.endsWith(ABOUT) || uri.endsWith(CONTACT) || uri.endsWith(ROOT))  {
+	            if (uri.endsWith(LOGIN) || uri.endsWith(LOGOUT) || uri.endsWith(Search) || uri.endsWith(REGISTER) || uri.endsWith(ABOUT) || uri.endsWith(CONTACT) || uri.endsWith(ROOT))  {
 	                chain.doFilter(request, response);
 	            } else {
 	                res.sendRedirect(req.getContextPath() + LOGIN);

@@ -1,34 +1,33 @@
 package com.beauty.model;
 
 public class Modelservice {
-	   private int id;
+	   private int service_id;
 	    private String title;
 	    private String name;
 	    private double price;
-	    private int durationHours;
+	    private int duration;
 	    private String category;
 	    private String imagePath;
 	public Modelservice() {
 		// TODO Auto-generated constructor stub
 	}
-	 public Modelservice(int id, String title, String name, double price, 
-             int durationHours, String category, String imagePath) {
-   this.id = id;
+	 public Modelservice(int service_id, String title, double price, 
+             int duration, String category, String imagePath) {
+   this.service_id = service_id;
    this.title = title;
-   this.name = name;
    this.price = price;
-   this.durationHours = durationHours;
+   this.duration = duration;
    this.category = category;
    this.imagePath = imagePath;
 }
 
 // Getters and Setters
-public int getId() {
-   return id;
+public int getServiceId() {
+   return service_id;
 }
 
-public void setId(int id) {
-   this.id = id;
+public void setServiceId(int id) {
+   this.service_id = service_id;
 }
 
 public String getTitle() {
@@ -55,12 +54,12 @@ public void setPrice(double price) {
    this.price = price;
 }
 
-public int getDurationHours() {
-   return durationHours;
+public int getDuration() {
+   return duration;
 }
 
-public void setDurationHours(int durationHours) {
-   this.durationHours = durationHours;
+public void setDuration(int duration) {
+   this.duration = duration;
 }
 
 public String getCategory() {
@@ -86,7 +85,7 @@ public String getFormattedPrice() {
 
 @Override
 public String toString() {
-   return "Service [id=" + id + ", title=" + title + ", price=" + price + "]";
+   return "Service [id=" + service_id + ", title=" + title + ", price=" + price + "]";
 }
 	   
 }

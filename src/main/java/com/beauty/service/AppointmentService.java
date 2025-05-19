@@ -15,15 +15,15 @@ public class AppointmentService {
         List<Appointment> appointments = new ArrayList<>();
 
         try (Connection conn = bdconfig.getDbConnection()) {
-            String query = "SELECT appointment_id, service_name, time, date, stylist FROM appointment";
+            String query = "SELECT appointment_id, service_name, Time, booked_date, stylist FROM appointment";
             try (PreparedStatement stmt = conn.prepareStatement(query)) {
                 ResultSet rs = stmt.executeQuery();
                 while (rs.next()) {
                     Appointment appointment = new Appointment();
                     appointment.setAppointmentId(rs.getInt("appointment_id"));
                     appointment.setServiceName(rs.getString("service_name"));
-                    appointment.setTime(rs.getString("time"));  // Use getString for time if it's TIME or VARCHAR
-                    appointment.setDate(rs.getString("date"));  // Use getString for DATE too
+                    appointment.setTime(rs.getString("Time"));  // Use getString for time if it's TIME or VARCHAR
+                    appointment.setDate(rs.getString("booked_date"));  // Use getString for DATE too
                     appointment.setStylist(rs.getString("stylist"));
                     appointments.add(appointment);
                 }

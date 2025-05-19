@@ -24,7 +24,7 @@
               <form action="${pageContext.request.contextPath}/login" method="post">
 				    <input type="text" name="username" placeholder="Please enter your Phone or Email" required>
 				    <input type="password" name="password" placeholder="Please enter your Password" required>
-				    <button type="submit">Login</button>
+				    <button class ="loginbtn" type="submit">Login</button>
 				</form>
                 <p class="forgot">Forgot your Password? <a href="#">Click here</a></p>
                 <p class="create">Don’t have an account? <a href="#">Create one</a></p>

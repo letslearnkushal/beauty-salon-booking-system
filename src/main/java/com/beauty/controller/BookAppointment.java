@@ -6,6 +6,8 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -43,13 +45,19 @@ public class BookAppointment extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		 String[] selectedServices = request.getParameterValues("services");
+		 
+		String[] selectedServices = request.getParameterValues("services");
 
 	        boolean showMakeupError = false;
 	        boolean showHairError = false;
 	        boolean showNailError = false;
 	        boolean showCosmoError = false;
 	        boolean showSpaError = false;
+	        HttpSession session = request.getSession(false);
+	        Integer userId = (Integer) session.getAttribute("userId");
+
+	        System.out.println("Session: " + session);
+	        System.out.println("User ID: " + (session != null ? session.getAttribute("userId") : "No session"));
 
 	        if (selectedServices != null) {
 	            List<String> services = Arrays.asList(selectedServices);
@@ -78,7 +86,7 @@ public class BookAppointment extends HttpServlet {
 	            }
 
 	            // Cosmetologist validation
-	            if (containsAny(lowerServices, Arrays.asList("botox", "chemical", "laser")) &&
+	                       if (containsAny(lowerServices, Arrays.asList("botox", "chemical", "laser")) &&
 	                request.getParameter("stylist_cosmo") == null) {
 	                showCosmoError = true;
 	            }
@@ -90,50 +98,71 @@ public class BookAppointment extends HttpServlet {
 	            }
 	        }
 
-	        // Send error flags to JSP
-	        request.setAttribute("showMakeupError", showMakeupError);
-	        request.setAttribute("showHairError", showHairError);
-	        request.setAttribute("showNailError", showNailError);
-	        request.setAttribute("showCosmoError", showCosmoError);
-	        request.setAttribute("showSpaError", showSpaError);
+	        // If any error exists, return to form
+	        if (showMakeupError || showHairError || showNailError || showCosmoError || showSpaError) {
+	            request.setAttribute("showMakeupError", showMakeupError);
+	            request.setAttribute("showHairError", showHairError);
+	            request.setAttribute("showNailError", showNailError);
+	            request.setAttribute("showCosmoError", showCosmoError);
+	            request.setAttribute("showSpaError", showSpaError);
+	            request.getRequestDispatcher("/WEB-INF/pages/booking.jsp").forward(request, response);
+	            return;
+	        }
 
-	        // Forward to booking page
-	        RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/pages/booking.jsp");
-	        rd.forward(request, response);
-	        
+	        // Continue with booking
 	        String[] services = request.getParameterValues("services");
 	        String date = request.getParameter("date");
 	        String time = request.getParameter("time");
 
-	        // Stylists
 	        String stylistMakeup = request.getParameter("stylist_makeup");
 	        String stylistHair = request.getParameter("stylist_hair");
 	        String stylistNail = request.getParameter("stylist_nail");
 	        String stylistCosmo = request.getParameter("stylist_cosmo");
 	        String stylistSpa = request.getParameter("stylist_spa");
 
-	        // Combine selected services
-	        String selectedServicesdb = String.join(", ", services != null ? services : new String[]{});
-
-	        // Get the selected stylist (first non-null)
+//	        String selectedServicesdb = String.join(", ", services != null ? services : new String[]{});
 	        String stylist = stylistMakeup != null ? stylistMakeup :
 	                         stylistHair != null ? stylistHair :
 	                         stylistNail != null ? stylistNail :
 	                         stylistCosmo != null ? stylistCosmo :
 	                         stylistSpa;
+	        
+	        double totalPrice = 0.0;
+	        List<String> serviceNames = new ArrayList<>();
 
+	        if (selectedServices != null) {
+	            for (String serviceWithPrice : selectedServices) {
+	                String[] parts = serviceWithPrice.split(":");
+	                if (parts.length == 2) {
+	                    String serviceName = parts[0];
+	                    double price = Double.parseDouble(parts[1]);
+
+	                    serviceNames.add(serviceName);
+	                    totalPrice += price;
+	                }
+	            }
+	        }
+
+	        String selectedServicesdb = String.join(", ", serviceNames);
+	        System.out.println("Total Price: £" + totalPrice);
+	        if (userId == null) {
+	            response.sendRedirect("login.jsp"); // or handle unauthenticated user
+	            return;
+	        }
+	     
 	        BookAppointmentService service = new BookAppointmentService();
 	        boolean alreadyBooked = service.isSlotTaken(date, time);
 
 	        if (alreadyBooked) {
 	            request.setAttribute("error", "Slot already booked.");
-	            request.getRequestDispatcher("/WEB-INF/pages/appointment.jsp").forward(request, response);
-	            return; // ✅ Imp
-	            } 
-	            AppointmentModel appointment = new AppointmentModel(selectedServicesdb, stylist, date, time);
-	            service.save(appointment);
-	            response.sendRedirect("booking.jsp");
-	            return; // ✅ Prevent further processing
+	            request.getRequestDispatcher("/WEB-INF/pages/My Appointment.jsp").forward(request, response);
+	            return;
+	        }
+
+	        AppointmentModel appointment = new AppointmentModel(userId, selectedServicesdb, stylist, date, time, totalPrice);
+
+	        service.save(appointment);
+	        response.sendRedirect("booking.jsp");
 	        }
 	    
 	

@@ -6,6 +6,7 @@ body {
     background-image: url('https://www.transparenttextures.com/patterns/beige-paper.png');
     background-repeat: repeat;
     color: #5e4633;
+    position: relative;
 }
 
 /* Header & Navigation */

@@ -34,19 +34,21 @@ public class ServicesController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		 try {
+		   try {
+	            // Get services from database
 	            List<Modelservice> services = serviceService.getAllServices();
+	            
+	            // Set the services in request attribute
 	            request.setAttribute("services", services);
-	            request.getRequestDispatcher("/WEB-INF/pages/services.jsp")
-	                   .forward(request, response);
+	            request.getRequestDispatcher("/WEB-INF/pages/services.jsp").forward(request, response);
 	            
 	        } catch (Exception e) {
-	            request.setAttribute("error", "Failed to load services. Please try again.");
-	            request.getRequestDispatcher("/WEB-INF/pages/services.jsp")
-	                   .forward(request, response);
-	            System.err.println("ServiceController error: " + e.getMessage());
+	            e.printStackTrace();
+	            request.setAttribute("error", "Error loading services. Please try again later.");
+	            request.getRequestDispatcher("/WEB-INF/pages/error.jsp").forward(request, response);
 	        }
 	    }
+	    
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
