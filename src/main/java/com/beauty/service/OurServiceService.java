@@ -76,10 +76,12 @@ public class OurServiceService {
         List<Modelservice> results = new ArrayList<>();
 
         try (Connection conn = bdconfig.getDbConnection()) {
-            String sql = "SELECT * FROM service WHERE LOWER(service_title) LIKE ?";
-            try (PreparedStatement ps = conn.prepareStatement(sql)) {
-                ps.setString(1, "%" + keyword.toLowerCase() + "%");
+        	String sql = "SELECT * FROM service WHERE LOWER(service_title) LIKE ? OR LOWER(category) LIKE ?";
 
+            try (PreparedStatement ps = conn.prepareStatement(sql)) {
+            	String likeKeyword = "%" + keyword.toLowerCase() + "%";
+            	ps.setString(1, likeKeyword);
+            	ps.setString(2, likeKeyword);
                 ResultSet rs = ps.executeQuery();
                 while (rs.next()) {
                     Modelservice s = new Modelservice();

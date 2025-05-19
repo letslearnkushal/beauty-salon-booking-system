@@ -3,7 +3,7 @@
 <%@ page import="jakarta.servlet.http.HttpSession"%>
 <%@ page import="jakarta.servlet.http.HttpServletRequest"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%
     HttpSession userSession = request.getSession(false);
     String currentUser = (String) (userSession != null ? userSession.getAttribute("username") : null);
@@ -212,9 +212,12 @@ padding-top: 40px;
         <!-- Right Side Search -->
  
         
-        <form action="${pageContext.request.contextPath}/search" method="get" class="search-box">
-    <input type="text" name="query" id="searchInput" placeholder="Search..." required />
-    <button type="submit">Search</button>
+       <c:if test="${not fn:contains(pageContext.request.requestURI, '/search')}">
+    <form action="${pageContext.request.contextPath}/search" method="get" class="search-box">
+        <input type="text" name="query" id="searchInput" placeholder="Search..." required />
+        <button type="submit">Search</button>
+    </form>
+</c:if>
 </form>
     </nav>
 
