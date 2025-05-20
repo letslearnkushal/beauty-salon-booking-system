@@ -2,81 +2,58 @@ package com.beauty.util;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.UUID;
 
+import jakarta.servlet.ServletContext;
 import jakarta.servlet.http.Part;
 
 public class ImageUtil {
+	// Extracts file name from the 'Part' header
+    public String getImageNameFromPart(Part part) {
+        String contentDisp = part.getHeader("content-disposition");
+        String[] items = contentDisp.split(";");
+        String imageName = null;
 
-	public String getImageNameFromPart(Part part) {
-		// Retrieve the content-disposition header from the part
-		String contentDisp = part.getHeader("content-disposition");
+        for (String s : items) {
+            if (s.trim().startsWith("filename")) {
+                imageName = s.substring(s.indexOf("=") + 2, s.length() - 1);
+                break;
+            }
+        }
 
-		// Split the header by semicolons to isolate key-value pairs
-		String[] items = contentDisp.split(";");
+        if (imageName == null || imageName.isEmpty()) {
+            imageName = "download.png";
+        }
 
-		// Initialize imageName variable to store the extracted file name
-		String imageName = null;
+        // Add unique ID prefix to avoid conflicts
+        String extension = imageName.substring(imageName.lastIndexOf("."));
+        String uniqueName =  imageName ;
+        return uniqueName;
+    }
 
-		// Iterate through the items to find the filename
-		for (String s : items) {
-			if (s.trim().startsWith("filename")) {
-				// Extract the file name from the header value
-				imageName = s.substring(s.indexOf("=") + 2, s.length() - 1);
-			}
-		}
+    // Uploads the file and saves to a fixed path under /resources/images/userprofileimages/
+    public String uploadImage(Part part, String folderName) {
+        String imageName = getImageNameFromPart(part);
 
-		// Check if the filename was not found or is empty
-		if (imageName == null || imageName.isEmpty()) {
-			// Assign a default file name if none was provided
-			imageName = "download.png";
-		}
+        //absolute development path
+        String saveDir = "C:/Users/Acer/eclipse-workspace/Beauty Saloon booking system/beauty-salon-booking-system/src/main/webapp/resources/images/" + folderName;
 
-		// Return the extracted or default file name
-		return imageName;
-	}
+        File dir = new File(saveDir);
+        if (!dir.exists()) {
+            dir.mkdirs(); // Create folder if not exists
+        }
 
-	/**
-	 * Uploads the image file from the given {@link Part} object to a specified
-	 * directory on the server.
-	 * 
-	 * <p>
-	 * This method ensures that the directory where the file will be saved exists
-	 * and creates it if necessary. It writes the uploaded file to the server's file
-	 * system. Returns {@code true} if the upload is successful, and {@code false}
-	 * otherwise.
-	 * </p>
-	 * 
-	 * @param part the {@link Part} object representing the uploaded image file.
-	 * @return {@code true} if the file was successfully uploaded, {@code false}
-	 *         otherwise.
-	 */
-	public boolean uploadImage(Part part, String rootPath, String saveFolder) {
-		String savePath = getSavePath(saveFolder);
-		File fileSaveDir = new File(savePath);
+        String fullPath = saveDir + "/" + imageName;
 
-		// Ensure the directory exists
-		if (!fileSaveDir.exists()) {
-			if (!fileSaveDir.mkdir()) {
-				return false; // Failed to create the directory
-			}
-		}
-		try {
-			// Get the image name
-			String imageName = getImageNameFromPart(part);
-			// Create the file path
-			String filePath = savePath + "/" + imageName;
-			// Write the file to the server
-			part.write(filePath);
-			return true; // Upload successful
-		} catch (IOException e) {
-			e.printStackTrace(); // Log the exception
-			return false; // Upload failed
-		}
-	}
-	
-	public String getSavePath(String saveFolder) {
-		return "C:\\Users\\Acer\\eclipse-workspace\\Beauty saloon booking system\\beauty-salon-booking-system\\src\\main\\webapp\\resources\\images"+saveFolder+"/";
-	}
+        try {
+            part.write(fullPath);
+            System.out.println("Image saved at: " + fullPath);
+        } catch (IOException e) {
+            e.printStackTrace();
+            return null;
+        }
+
+        // Return relative path to save in DB
+        return "resources/images/" + folderName + "/" + imageName;
+    }
 }
-
-

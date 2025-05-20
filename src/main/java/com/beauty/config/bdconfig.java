@@ -4,7 +4,8 @@ package com.beauty.config;
 
 	import java.sql.Connection;
 	import java.sql.DriverManager;
-	import java.sql.SQLException;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 
 	/**
 	 * DbConfig is a configuration class for managing database connections. It
@@ -31,6 +32,11 @@ package com.beauty.config;
 		}
 
 		public static Connection getConnection() {
+			// TODO Auto-generated method stub
+			return null;
+		}
+
+		public static PreparedStatement prepareStatement(String sql) {
 			// TODO Auto-generated method stub
 			return null;
 		}

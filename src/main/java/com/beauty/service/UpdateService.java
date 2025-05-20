@@ -38,7 +38,7 @@ public class UpdateService {
             return null;
         }
 
-        String updateSQL = "UPDATE user SET first_name = ?, last_name = ?, email = ?, phone = ?, username = ?, password = ? WHERE user_id = ?";
+        String updateSQL = "UPDATE user SET first_name = ?, last_name = ?, email = ?, phone = ?, username = ?, password = ?  WHERE user_id = ?";
 
         try (PreparedStatement preparedStatement = dbConn.prepareStatement(updateSQL)) {
             preparedStatement.setString(1, user.getFirst_name());
@@ -48,7 +48,7 @@ public class UpdateService {
             preparedStatement.setString(5, user.getUsername());
             preparedStatement.setString(6, user.getPassword()); // Assuming password is encrypted before passed
             preparedStatement.setInt(7, user.getUser_id());
-
+          
             int rowsAffected = preparedStatement.executeUpdate();
             return rowsAffected > 0;
         } catch (SQLException e) {

@@ -154,15 +154,15 @@ public class modeluser {
 	        this.decryptedPassword = decryptedPassword;
 	    }
 
-//	public String getImageUrl() {
-//		// TODO Auto-generated method stub
-//		return null;
-//	}
-//
-//
-//	public void setImageUrl(String imageUrl) {
-//		this.imageUrl = imageUrl;
-//	}
+	public String getImageUrl() {
+		// TODO Auto-generated method stub
+		return imageUrl;
+	}
+
+
+	public void setImageUrl(String imageUrl) {
+		this.imageUrl = imageUrl;
+	}
 
 
 //	public LocalDate getDob() {

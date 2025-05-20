@@ -19,7 +19,12 @@
 <div class="profile-container">
   <!-- Sidebar -->
   <aside class="profile-sidebar">
-    <div class="profile-pic"></div>
+    <div class="profile-pic">
+      <img src="${pageContext.request.contextPath}/resources/images/${user.imageUrl}" alt="Profile Picture" />
+      <div class="zoom-popup">
+    <img src="${pageContext.request.contextPath}/resources/images/${user.imageUrl}" alt="Zoomed Picture" />
+  </div>
+    </div>
      <h2>${user.username}</h2>
     <p class="member-since">MEMBER SINCE 2025</p>
 
@@ -36,7 +41,9 @@
     <!-- Personal Info -->
     <div id="info" class="content-section active">
       <div class="profile-header">
-        <div class="profile-pic small"></div>
+        <div class="profile-pic small">
+          <img src="${pageContext.request.contextPath}/resources/images/${user.imageUrl}" alt="Profile Picture" />
+        </div>
         <div>
           <h3>${user.first_name } ${user.last_name} </h3>
           <p>${user.email}</p>
@@ -64,6 +71,7 @@
 
     <!-- Hidden input for user ID -->
     <input type="hidden" name="user_id" value="${user.user_id}">
+ <a href="${pageContext.request.contextPath}/" class="btn-home">🏠 Back to Home</a>
 
 
   </div>
@@ -75,6 +83,8 @@
 
     
   </section>
+
 </div>
+
 </body>
 </html>

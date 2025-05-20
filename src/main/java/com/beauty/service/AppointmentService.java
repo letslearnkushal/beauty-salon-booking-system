@@ -8,6 +8,7 @@ import java.util.List;
 
 import com.beauty.config.bdconfig;
 import com.beauty.model.Appointment;
+import com.beauty.model.AppointmentModel;
 
 public class AppointmentService {
 
@@ -62,6 +63,11 @@ public class AppointmentService {
 	}
 
 	public Appointment getAppointmentById(int appointmentId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public List<AppointmentModel> getAppointmentsByUserId(int user_id) {
 		// TODO Auto-generated method stub
 		return null;
 	}

@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+  <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page session="true" %>  
 <!DOCTYPE html>
 <html>
 <head>
@@ -38,13 +40,61 @@
       margin-bottom: 20px;
     }
 
-    .profile-pic {
-      width: 100px;
-      height: 100px;
-      background-color: #ccc;
-      border-radius: 50%;
-      margin-bottom: 10px;
-    }
+   
+    /* Container to hold both thumbnail and popup */
+.profile-pic {
+  position: relative;
+  display: inline-block;
+}
+
+/* Profile Thumbnail */
+.profile-thumb {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+/* Hidden Zoom Popup */
+.zoom-popup {
+  display: none;
+  position: absolute;
+  top: -10px;
+  left: 130%;
+  z-index: 100;
+  padding: 5px;
+  background-color: white;
+  border: 1px solid #ccc;
+  box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
+}
+
+/* Zoomed Image Style */
+.zoom-popup img {
+  width: 250px;
+  height: 250px;
+  border-radius: 10px;
+}
+
+/* Show popup on hover */
+.profile-pic:hover .zoom-popup {
+  display: block;
+}
+  .btn-home {
+    display: inline-block;
+    background-color: #007BFF;
+    color: white;
+    padding: 10px 18px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 14px;
+    margin-top: 20px;
+    transition: background-color 0.3s ease;
+  }
+
+  .btn-home:hover {
+    background-color: #0056b3;
+  }
 
     .profile-nav a {
       display: block;
@@ -143,7 +193,15 @@
 <div class="profile-container">
   <!-- Sidebar -->
   <aside class="profile-sidebar">
-    <div class="profile-pic"></div>
+    <div class="profile-pic">
+      <img style="   width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      margin-bottom: 10px;"   src="${pageContext.request.contextPath}/resources/images/${user.imageUrl}" alt="Profile Picture" />
+      <div class="zoom-popup">
+    <img src="${pageContext.request.contextPath}/resources/images/${user.imageUrl}" alt="Zoomed Picture" />
+  </div>
+    </div>
     <h2>${user.username}</h2>
     <p class="member-since">MEMBER SINCE 2025</p>
 
@@ -155,33 +213,33 @@
     </nav>
   </aside>
 
-  <!-- Main content -->
+<!-- Main Section -->
   <section class="profile-main">
-      <!-- Booking History -->
     <div id="history" class="content-section">
       <h2>Booking History</h2>
       <div class="booking-history">
-        <div class="booking-card">
-          <p><strong>Session with <span class="coach-name">Ozenua Oluwatobi</span></strong></p>
-          <p><span class="icon">📅</span> Mon, Jan 10</p>
-          <p><span class="icon">⏰</span> 12:00pm - 1:00pm</p>
-          <a href="#" class="details-link">Details &gt;</a>
-        </div>
-        
+        <c:choose>
+          <c:when test="${not empty historyList}">
+            <c:forEach var="appt" items="${historyList}">
+              <div class="booking-card">
+                <p><strong>Session with: </strong><span class="coach-name">${appt.stylist}</span></p>
+                <p><span class="icon">📅</span> ${appt.appointment_date}</p>
+                <p><span class="icon">⏰</span> ${appt.time}</p>
+                <p><span class="icon">💰</span> Rs. ${appt.price}</p>
+                <p><strong>Service:</strong> ${appt.services}</p>
+              </div>
+            </c:forEach>
+          </c:when>
+          <c:otherwise>
+            <p>You haven't booked any appointments yet.</p>
+          </c:otherwise>
+        </c:choose>
       </div>
     </div>
-
-    <!-- Settings -->
-    <div id="history" class="content-section">
-   <div class="booking-card">
-          <p><strong>Session with <span class="coach-name">Ozenua Oluwatobi</span></strong></p>
-          <p><span class="icon">📅</span> Mon, Jan 10</p>
-          <p><span class="icon">⏰</span> 12:00pm - 1:00pm</p>
-          <a href="#" class="details-link">Details &gt;</a>
-        </div>
-    </div>
-
+     <a href="${pageContext.request.contextPath}/" class="btn-home">🏠 Back to Home</a>
+    
   </section>
 </div>
+
 </body>
 </html>

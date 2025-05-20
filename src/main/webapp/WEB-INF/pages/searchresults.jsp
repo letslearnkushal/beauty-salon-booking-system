@@ -159,7 +159,7 @@
 				        <p><strong>Category:</strong> ${item.category}</p>
 				        <p><strong>Duration:</strong> ${item.duration} hours</p>
 				        <p><strong>Price:</strong> Rs ${item.price}</p>
-				        <a href="${pageContext.request.contextPath}/services" class="book-button">Book Now</a>
+				        <a href="${pageContext.request.contextPath}/bookappointment" class="book-button">Book Now</a>
 				    </div>
 				    <div class="service-image">
 				        <img src="${pageContext.request.contextPath}/resources/images/${item.imagePath}" alt="${item.title}" />

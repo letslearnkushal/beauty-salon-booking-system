@@ -116,9 +116,11 @@ import com.beauty.util.PasswordUtil;
 	                user.setPassword(encrypted);
 	                user.setRole_id(rs.getInt("role_id"));
 	                user.setRole_name(rs.getString("role_name"));
+	                user.setImageUrl(rs.getString("image_path"));
 
 	                System.out.println("Found user: " + user.getUsername());
 	                System.out.println("Role: " + user.getRole_name());
+	                System.out.println("path: " + user.getImageUrl());
 
 	            } else {
 	                System.out.println("No user found with username: " + username);

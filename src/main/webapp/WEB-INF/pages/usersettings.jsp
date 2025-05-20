@@ -14,7 +14,15 @@
 <div class="profile-container">
   <!-- Sidebar -->
   <aside class="profile-sidebar">
-    <div class="profile-pic"></div>
+    <div class="profile-pic">
+      <img style="width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      margin-bottom: 10px;" src="${pageContext.request.contextPath}/resources/images/${user.imageUrl}" alt="Profile Picture" />
+     <div class="zoom-popup">
+    <img src="${pageContext.request.contextPath}/resources/images/${user.imageUrl}" alt="Zoomed Picture" />
+  </div>
+    </div>
     <h2>${user.username}</h2>
     <p class="member-since">MEMBER SINCE 2025</p>
 
@@ -91,6 +99,8 @@
                 <p style="color:red">${errorMsg}</p>
         </div>
         </div>
+         <a href="${pageContext.request.contextPath}/" class="btn-home">🏠 Back to Home</a>
+        
         
  
  </section>
@@ -136,11 +146,49 @@
     .profile-pic {
       width: 100px;
       height: 100px;
-      background-color: #ccc;
       border-radius: 50%;
       margin-bottom: 10px;
       
     }
+/* Container to hold both thumbnail and popup */
+.profile-pic {
+  position: relative;
+  display: inline-block;
+}
+
+/* Profile Thumbnail */
+.profile-thumb {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+/* Hidden Zoom Popup */
+.zoom-popup {
+  display: none;
+  position: absolute;
+  top: -10px;
+  left: 130%;
+  z-index: 100;
+  padding: 5px;
+  background-color: white;
+  border: 1px solid #ccc;
+  box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
+}
+
+/* Zoomed Image Style */
+.zoom-popup img {
+  width: 250px;
+  height: 250px;
+  border-radius: 10px;
+}
+
+/* Show popup on hover */
+.profile-pic:hover .zoom-popup {
+  display: block;
+}
 
     .profile-nav a {
       display: block;
@@ -164,6 +212,21 @@
       padding: 30px;
      height: auto;
     }
+      .btn-home {
+    display: inline-block;
+    background-color: #007BFF;
+    color: white;
+    padding: 10px 18px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 14px;
+    margin-top: 20px;
+    transition: background-color 0.3s ease;
+  }
+
+  .btn-home:hover {
+    background-color: #0056b3;
+  }
       
 
         h1 {

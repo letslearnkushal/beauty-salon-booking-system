@@ -11,6 +11,7 @@ import jakarta.servlet.http.Part;
 
 import java.io.IOException;
 import java.time.LocalDate;
+import java.util.UUID;
 
 import com.beauty.service.registerservice;
 
@@ -61,12 +62,13 @@ public class RegisterController extends HttpServlet {
 		        String password = request.getParameter("password");
 		        String retypePassword = request.getParameter("re-Password");
 		        String dobString = request.getParameter("dob");
-//		        Part imageFile = request.getPart("imagefile"); // For file upload
+		       Part image = request.getPart("image"); // For file upload
 		        
 				System.out.println("username: " + username);
 				System.out.println("email: " + email);
 				System.out.println("password: " + password);
 				System.out.println("retypePassword: " + retypePassword);
+				System.out.println("file: " + image);
 		        String errorMsg = "";
 
 		        // Validate fields
@@ -98,13 +100,13 @@ public class RegisterController extends HttpServlet {
 		                errorMsg = "You must be at least 16 years old.";
 		            }
 		        }
-//
-//		        // Validate image file
-//		        if (imageFile == null || imageFile.getSize() == 0) {
-//		            errorMsg = "Display picture is required.";
-//		        } else if (!ValidationUtil.isValidImageExtension(imageFile)) {
-//		            errorMsg = "Invalid image format. Only jpg, jpeg, png, and gif are allowed.";
-//		        }
+
+		        // Validate image file
+		        if (image == null || image.getSize() == 0) {
+		            errorMsg = "Display picture is required.";
+		        } else if (!ValidationUtil.isValidImageExtension(image)) {
+		            errorMsg = "Invalid image format. Only jpg, jpeg, png, and gif are allowed.";
+		        }
 
 		        // If validation fails
 		        if (!errorMsg.isEmpty()) {
@@ -114,6 +116,14 @@ public class RegisterController extends HttpServlet {
 		            System.out.println("Registration failed");
 		            rd.forward(request, response);
 		        } else {
+		            // generate unique image name
+		           
+		            String imageName = imageUtil.getImageNameFromPart(image);
+		            String savedRelativePath = "userprofileimages/" + imageName;
+		            
+
+		            
+
 		           modeluser modeluser = new modeluser();
 		           modeluser.setFirst_name(firstName);
 		           modeluser.setLast_name(lastName);
@@ -121,6 +131,9 @@ public class RegisterController extends HttpServlet {
 		           modeluser.setGender(gender);
 		           modeluser.setEmail(email);
 		           modeluser.setPhone(number);
+		          modeluser.setImageUrl(savedRelativePath);
+		           
+		           imageUtil.uploadImage(image, "userprofileimages");
 		           try {
 		        	    String encryptedPassword = PasswordUtil.encrypt( password);
 		        	    modeluser.setPassword(encryptedPassword);
@@ -131,9 +144,11 @@ public class RegisterController extends HttpServlet {
 		        	    return;
 		        	}
 		           modeluser.setRole_name(role_id);
+		   
 		           com.beauty.service.registerservice registerService = new com.beauty.service.registerservice();
 		           Boolean  isRegistred = registerService.addUser(modeluser);
 		           if(isRegistred != null && isRegistred) {
+		        
 		        	   System.out.println("Successefully  registered");
 		        	   request.getRequestDispatcher("/WEB-INF/pages/login.jsp").forward(request, response);
 		           }
@@ -147,6 +162,20 @@ public class RegisterController extends HttpServlet {
 		    }
 
 			}
+
+				
+    private void handleSuccess(HttpServletRequest req, HttpServletResponse resp, String message, String redirectPage)
+            throws ServletException, IOException {
+        req.setAttribute("success", message);
+        req.getRequestDispatcher(redirectPage).forward(req, resp);
+    }
+
+    private void handleError(HttpServletRequest req, HttpServletResponse resp, String message)
+            throws ServletException, IOException {
+        req.setAttribute("error", message);
+        req.getRequestDispatcher("/WEB-INF/pages/userregistration.jsp").forward(req, resp);
+    }
+	
 		}
 //		
 //		try {

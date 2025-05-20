@@ -33,8 +33,8 @@ public class registerservice {
 			}
 
 			String roleQuery = "SELECT role_id FROM user_role WHERE role_name = ?";
-			String insertQuery = "INSERT INTO user (first_name, last_name, email, phone, gender, username, password, role_id) "
-					+ "VALUES ( ?, ?, ?, ?, ?, ?, ?, ?)";
+			String insertQuery = "INSERT INTO user (first_name, last_name, email, phone, gender, username, password, role_id, image_path) "
+					+ "VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
 			try (PreparedStatement roleStmt = dbConn.prepareStatement(roleQuery);
 					PreparedStatement insertStmt = dbConn.prepareStatement(insertQuery)) {
@@ -53,7 +53,7 @@ public class registerservice {
 				insertStmt.setString(6, model_user.getUsername());
 				insertStmt.setString(7, model_user.getPassword());
 				insertStmt.setInt(8, roleid);
-	
+				insertStmt.setString(9, model_user.getImageUrl());
 
 				return insertStmt.executeUpdate() > 0;
 			} catch (SQLException e) {

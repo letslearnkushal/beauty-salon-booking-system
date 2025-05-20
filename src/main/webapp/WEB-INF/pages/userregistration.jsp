@@ -17,7 +17,7 @@
             <h1 class="title">The Beauty Lab</h1>
             <h2 class="subtitle">User Registration</h2>
             <p class="instruction">Please kindly fill the Registration form</p>
-            <form action="${pageContext.request.contextPath}/register" method="post" name="registrationForm">
+            <form action="${pageContext.request.contextPath}/register" method="post" name="registrationForm" enctype="multipart/form-data">
                 <!-- First + Last Name -->
                 <div class="row">
                     <div class="input-box">
@@ -73,7 +73,7 @@
                 </div>
                 <div class="input-box">
                     <label for="image">Insert Your Display Picure :</label>
-                     <input type="file" id="myFile" name="imagefile" required>
+                     <input type="file" id="image" name="image" required>
  					
                 </div>
                 

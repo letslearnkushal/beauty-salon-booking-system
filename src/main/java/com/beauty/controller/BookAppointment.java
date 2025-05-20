@@ -155,14 +155,26 @@ public class BookAppointment extends HttpServlet {
 
 	        if (alreadyBooked) {
 	            request.setAttribute("error", "Slot already booked.");
-	            request.getRequestDispatcher("/WEB-INF/pages/My Appointment.jsp").forward(request, response);
+	            request.getRequestDispatcher("/WEB-INF/pages/confirmbooking.jsp").forward(request, response);
 	            return;
 	        }
 
 	        AppointmentModel appointment = new AppointmentModel(userId, selectedServicesdb, stylist, date, time, totalPrice);
 
 	        service.save(appointment);
-	        response.sendRedirect("booking.jsp");
+	        request.setAttribute("appointment", appointment);  // pass appointment model
+	        request.setAttribute("user", session.getAttribute("user"));  // pass logged-in user
+	        // Set attributes for JSP
+	        int appointmentId = service.save(appointment);
+	        appointment.setAppointmentId(appointmentId);
+	        request.setAttribute("appointmentID", appointmentId);
+	        request.setAttribute("selectedServices", services);
+	        request.setAttribute("stylist", stylist);
+	        request.setAttribute("date", date);
+	        request.setAttribute("time", time);
+	        request.setAttribute("total", totalPrice);
+	        request.getRequestDispatcher("/WEB-INF/pages/confirmbooking.jsp").forward(request, response);
+
 	        }
 	    
 	

@@ -1,42 +1,124 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page session="true" %>
+
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
+  <meta charset="UTF-8">
+  <title>Booking Confirmed</title>
+  <style>
+    body {
+      background: linear-gradient(to right, #fdfbfb, #ebedee);
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .confirmation-box {
+      background-color: #fff;
+      padding: 35px 40px;
+      border-radius: 15px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      max-width: 600px;
+      width: 100%;
+    }
+
+    .confirmation-box h2 {
+      color: #28a745;
+      margin-bottom: 25px;
+      text-align: center;
+    }
+
+    .booking-detail {
+      margin: 15px 0;
+      font-size: 15px;
+      color: #333;
+    }
+
+    .booking-detail strong {
+      display: inline-block;
+      width: 140px;
+    }
+
+    .summary-box {
+      background-color: #f5f5f5;
+      padding: 25px;
+      border-radius: 12px;
+      margin-top: 20px;
+      border: 1px solid #ccc;
+    }
+
+    .summary-box h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    .summary-item {
+      margin-bottom: 14px;
+      font-size: 15px;
+    }
+
+    .summary-item ul {
+      margin: 8px 0 0 15px;
+      padding: 0;
+      list-style-type: disc;
+    }
+
+    .btn-home {
+      display: block;
+      text-align: center;
+      margin: 30px auto 0;
+      background-color: #007bff;
+      color: #fff;
+      padding: 12px 25px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      width: fit-content;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn-home:hover {
+      background-color: #0056b3;
+    }
+  </style>
 </head>
 <body>
-<p>Selected Services:</p>
-<ul>
-<%
-    String[] services = request.getParameterValues("services");
-    if (services != null) {
-        for (String s : services) {
-%>
-            <li><%= s %></li>
-<%
-        }
-    } else {
-%>
-    <li>No services selected</li>
-<%
-    }
-%>
-</ul>
 
-<p>Stylist: <%= request.getParameter("stylist") %></p>
-<p>Date: <%= request.getParameter("date") %></p>
-<p>Time: <%= request.getParameter("time") %></p>
+<div class="confirmation-box">
+  <h2>🎉 Booking Confirmed!</h2>
 
-<p><strong>Selected Stylists:</strong></p>
-<ul>
-    <li>Makeup Stylist: <%= request.getParameter("stylist_makeup") %></li>
-    <li>Hair Stylist: <%= request.getParameter("stylist_hair") %></li>
-    <li>Nail Stylist: <%= request.getParameter("stylist_nail") %></li>
-    <li>Cosmetologist: <%= request.getParameter("stylist_cosmo") %></li>
-    <li>Spa Specialist: <%= request.getParameter("stylist_spa") %></li>
-</ul>
+  <div class="booking-detail"><strong>Appointment ID:</strong> ${appointment.appointmentId}</div>
+  <div class="booking-detail"><strong>First Name:</strong> ${user.first_name}</div>
+  <div class="booking-detail"><strong>Last Name:</strong> ${user.last_name}</div>
+
+  <div class="summary-box">
+    <h2>Summary</h2>
+
+    <div class="summary-item"><strong>Stylist:</strong> ${stylist}</div>
+    <div class="summary-item"><strong>Date:</strong> ${date}</div>
+    <div class="summary-item"><strong>Time:</strong> ${time}</div>
+
+    <div class="summary-item"><strong>Selected Services:</strong>
+      <ul>
+        <c:forEach var="service" items="${selectedServices}">
+          <li>${service}</li>
+        </c:forEach>
+      </ul>
+    </div>
+
+    <div class="summary-item"><strong>Total Price:</strong> Rs. ${total}</div>
+  </div>
+
+  <a href="${pageContext.request.contextPath}/home" class="btn-home">🏠 Back to Home</a>
+</div>
 
 </body>
 </html>
