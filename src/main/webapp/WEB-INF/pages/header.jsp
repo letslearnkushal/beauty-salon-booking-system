@@ -35,8 +35,7 @@ body {
 .beauty-header {
     background-color: #f7e6d7;
     animation: fadeIn 1.5s ease-in;
-    padding-bottom: 20px;
-    margin-bottom: 30px; /* Add this line */
+    
 }
 /* Navbar Layout */
 .navbar {
@@ -60,7 +59,7 @@ body {
     margin: 0 auto;
     padding: 0;
     flex: 1;
-    gap: 99px;
+    gap: 59px;
 }
 
 .nav-links li a {
@@ -104,7 +103,7 @@ body {
     border: 1px solid #aaa;
     border-radius: 4px;
     height: 20px;
-    max-width: 160px;  /* allow it to shrink smaller if needed */
+    max-width: 150px;  /* allow it to shrink smaller if needed */
     width: 100%;  
 }
 

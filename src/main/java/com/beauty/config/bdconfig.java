@@ -32,8 +32,13 @@ import java.sql.SQLException;
 		}
 
 		public static Connection getConnection() {
-			// TODO Auto-generated method stub
-			return null;
+		    try {
+	            Class.forName("com.mysql.cj.jdbc.Driver");
+	            return DriverManager.getConnection(URL, USERNAME, PASSWORD);
+	        } catch (ClassNotFoundException | SQLException e) {
+	            e.printStackTrace();
+	            return null;
+	        }
 		}
 
 		public static PreparedStatement prepareStatement(String sql) {
