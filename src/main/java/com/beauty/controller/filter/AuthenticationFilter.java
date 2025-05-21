@@ -37,6 +37,7 @@ import com.beauty.util.SessionUtil;
 	    private static final String Apoinments = "/myappointmentController";
 	    private static final String Conform = "/bookingconfirmed";
 	    private static final String Review = "/review";
+	    private static final String ADMINSERVICE = "/adminservice";
 	    private static final String Search = "/search";
 	    @Override
 	    public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
@@ -62,7 +63,7 @@ import com.beauty.util.SessionUtil;
 //	            if (uri.endsWith(LOGIN) || uri.endsWith(REGISTER)) {
 //	                res.sendRedirect(req.getContextPath() + DASHBOARD);
 //	        }
-	        	if (uri.endsWith(DASHBOARD) || uri.endsWith(ADMINUSER) || uri.endsWith(LOGOUT) || uri.endsWith(Apoinments)
+	        	if (uri.endsWith(DASHBOARD) || uri.endsWith(ADMINUSER) || uri.endsWith(ADMINSERVICE) || uri.endsWith(LOGOUT) || uri.endsWith(Apoinments)
 	                    || uri.endsWith(ROOT)) {
 	                chain.doFilter(request, response);
 	            } else {

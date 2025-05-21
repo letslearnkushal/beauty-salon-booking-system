@@ -7,6 +7,8 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+import com.beauty.service.Adminuserservice;
+
 /**
  * Servlet implementation class adminDashboard
  */
@@ -26,7 +28,15 @@ public class AdminDashboard extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		Adminuserservice userService = new Adminuserservice();
+
+		int totalUsers = userService.getTotalUsers();
+		request.setAttribute("totalAppointments", userService.getTotalAppointments());
+		request.setAttribute("totalStylists", userService.getTotalStylists());
+		request.setAttribute("totalReviews", userService.getTotalReviews());
+
+
+		request.setAttribute("totalUsers", totalUsers);
 		request.getRequestDispatcher("/WEB-INF/pages/admindashboard.jsp").forward(request, response);
 	}
 

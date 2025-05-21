@@ -61,5 +61,43 @@ public class Adminuserservice {
     public boolean deleteUserById(int userId) {
         return deleteuser.deleteUser(userId);
     }
+ // Get total user count
+    public int getTotalUsers() {
+        String sql = "SELECT COUNT(*) FROM user";
+        return executeCountQuery(sql);
+    }
+
+ // Total number of appointments
+    public int getTotalAppointments() {
+        String sql = "SELECT COUNT(*) FROM appointment";
+        return executeCountQuery(sql);
+    }
+
+    // Total number of stylists
+    public int getTotalStylists() {
+        String sql = "SELECT COUNT(*) FROM stylist";
+        return executeCountQuery(sql);
+    }
+
+    // Total number of reviews
+    public int getTotalReviews() {
+        String sql = "SELECT COUNT(*) FROM review";
+        return executeCountQuery(sql);
+    }
+
+    // Reusable private method
+    private int executeCountQuery(String sql) {
+        try (Connection conn = bdconfig.getDbConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql);
+             ResultSet rs = stmt.executeQuery()) {
+            if (rs.next()) {
+                return rs.getInt(1);
+            }
+        } catch (SQLException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        return 0;
+    }
+    
 
 }

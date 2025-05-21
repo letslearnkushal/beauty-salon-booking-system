@@ -83,4 +83,23 @@ public class UpdateService {
 
         return 0;
     }
+    public boolean updateServicePrice(int serviceId, double newPrice) {
+        if (isConnectionError) {
+            return false;
+        }
+
+        String sql = "UPDATE service SET price = ? WHERE service_id = ?";
+
+        try (PreparedStatement ps = dbConn.prepareStatement(sql)) {
+            ps.setDouble(1, newPrice);
+            ps.setInt(2, serviceId);
+
+            int rows = ps.executeUpdate();
+            return rows > 0;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
 }

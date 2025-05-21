@@ -25,7 +25,7 @@
     }
 
     .profile-sidebar {
-      background-color: #f0f0f0;
+      background-color: white;
       width: 250px;
       padding: 20px;
     }
@@ -116,6 +116,7 @@
       background-color: #1e1e1e;
       color: white;
       padding: 30px;
+      height: max-content;
     }
 
     /* Booking section tabs */

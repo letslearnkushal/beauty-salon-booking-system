@@ -12,7 +12,8 @@ import com.beauty.config.bdconfig;
 import com.beauty.model.Modelservice;
 
 public class OurServiceService {
-
+ 
+    
     public List<Modelservice> getAllServices() {
         List<Modelservice> services = new ArrayList<>();
         
