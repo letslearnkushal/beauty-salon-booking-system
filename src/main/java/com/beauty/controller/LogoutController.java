@@ -36,7 +36,7 @@ public class LogoutController extends HttpServlet {
         	if (session != null) {
         	    session.invalidate();
         	}
-            // ✅ Delete role_id cookie using your utility
+            // Delete role_id cookie
             CookieUtil.deleteCookie(response, "role_id");
             // Redirect user to login page after logout
             response.sendRedirect(request.getContextPath() + "/");

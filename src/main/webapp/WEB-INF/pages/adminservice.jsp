@@ -245,7 +245,7 @@
 
             <h3>Update Service Price</h3>
 
-            <form action="${pageContext.request.contextPath}/adminservice" method="post" style="margin-top: 20px;">
+            <form action="${pageContext.request.contextPath}/adminservice" method="post" style="margin-top: 20px;" >
                 <label for="serviceId">Select Service:</label>
                 <select name="serviceId" required>
                     <option value="">-- Select Service --</option>
