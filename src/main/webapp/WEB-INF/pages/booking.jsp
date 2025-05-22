@@ -74,7 +74,7 @@
 	            <label><input type="radio" name="stylist_hair" value="Emily"> Emily</label>
 	            <label><input type="radio" name="stylist_hair" value="Riya"> Riya</label>
 	            <c:if test="${showHairError}">
-				    <p style="color:red;">Please select a makeup stylist.</p>
+				    <p style="color:red;">Please select a Hair stylist.</p>
 				</c:if>
 	        </div>
 	
@@ -99,7 +99,7 @@
 	            <label><input type="radio" name="stylist_nail" value="Jessie"> Jessie</label>
 	            <label><input type="radio" name="stylist_nail" value="Tina"> Tina</label>
 	           <c:if test="${showNailError}">
-				    <p style="color:red;">Please select a makeup stylist.</p>
+				    <p style="color:red;">Please select a Nails stylist.</p>
 				</c:if>
 	           
 	        </div>
@@ -124,7 +124,7 @@
 	            <label><input type="radio" name="stylist_cosmo" value="Dr. Mira" > Dr. Mira</label>
 	            <label><input type="radio" name="stylist_cosmo" value="Dr. Laxmi"> Dr. Laxmi</label>
 	            <c:if test="${showCosmoError}">
-				    <p style="color:red;">Please select a makeup stylist.</p>
+				    <p style="color:red;">Please select a Cosmo stylist.</p>
 				</c:if>
 	          
 	        </div>
@@ -148,7 +148,7 @@
 	            <label><input type="radio" name="stylist_spa" value="Mina" > Mina</label>
 	            <label><input type="radio" name="stylist_spa" value="Luna"> Luna</label>
 	            <c:if test="${showSpaError}">
-				    <p style="color:red;">Please select a makeup stylist.</p>
+				    <p style="color:red;">Please select a Spa stylist.</p>
 				</c:if>
 	        </div>
 	    </div>

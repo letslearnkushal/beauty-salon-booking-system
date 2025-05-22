@@ -22,9 +22,11 @@
             </div>
         </div>
 
-        <ul class="nav-menu">
+          <ul class="nav-menu">
             <li><a href="${pageContext.request.contextPath}/admindashboard" class="nav-link active">&#x1F3E0; Dashboard</a></li>
             <li><a href="${pageContext.request.contextPath}/adminuser" class="nav-link">&#x1F464; User List</a></li>
+            <li><a href="${pageContext.request.contextPath}/adminservice" class="nav-link">&#x1F4E6; Service List</a></li>
+            <li><a href="${pageContext.request.contextPath}/myappointmentController" class="nav-link">&#x1F4CB; Appointment List</a></li>
             <li><a href="${pageContext.request.contextPath}/logout" class="nav-link">&#x1F6AA; Log Out</a></li>
         </ul>
     </div>
@@ -58,7 +60,7 @@
     <div class="stats-value">${totalAppointments}</div>
 </div>
 
-<div class="stats-card purple">
+<div class="stats-card purple" style="background-color:green;">
     <div class="stats-title">Total Stylists</div>
     <div class="stats-value">${totalStylists}</div>
 </div>

@@ -21,20 +21,12 @@
             </div>
             
             <ul class="nav-menu">
-                <li class="nav-item">
-                    <a  href="${pageContext.request.contextPath}/adminDashboard" class="nav-link active">
-                        <span class="nav-icon">&#x1F3E0;</span>
-                        Dashboard
-                   </a>
-                </li>
-                <li>
-           
-                     <a href="${pageContext.request.contextPath}/adminuser" class="nav-link active">
-                        <span class="nav-icon">&#x1F465;</span>
-                        User List
-                    </a>
-                </li>
-            </ul>
+            <li><a href="${pageContext.request.contextPath}/admindashboard" class="nav-link active">&#x1F3E0; Dashboard</a></li>
+            <li><a href="${pageContext.request.contextPath}/adminuser" class="nav-link">&#x1F464; User List</a></li>
+            <li><a href="${pageContext.request.contextPath}/adminservice" class="nav-link">&#x1F4E6; Service List</a></li>
+            <li><a href="${pageContext.request.contextPath}/myappointmentController" class="nav-link">&#x1F4CB; Appointment List</a></li>
+            <li><a href="${pageContext.request.contextPath}/logout" class="nav-link">&#x1F6AA; Log Out</a></li>
+        </ul>
         </div>
         
         <!-- Main Content -->

@@ -116,8 +116,15 @@
 
     <div class="summary-item"><strong>Total Price:</strong> Rs. ${total}</div>
   </div>
+  <p style="text-align:center; margin-top: 25px; font-size: 15px; color: #555;">
+    Want to leave a review?
+  </p>
 
-  <a href="${pageContext.request.contextPath}/home" class="btn-home">🏠 Back to Home</a>
+<!-- Buttons -->
+  <div style="display: flex; justify-content: center; gap: 15px; margin-top: 10px;">
+    <a href="${pageContext.request.contextPath}/home" class="btn-home">🏠 Back to Home</a>
+    <a href="${pageContext.request.contextPath}/review" class="btn-home" style="background-color: #28a745;">✍️ Write a Review</a>
+  </div>
 </div>
 
 </body>
